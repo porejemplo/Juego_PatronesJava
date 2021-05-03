@@ -5,32 +5,54 @@ public abstract class Personajes {
 	private int vida;
 	private int ataque;
 	private int agilidad;
+	private String nombre;
+
+	public Personajes(int vida, int ataque, int agilidad, String nombre) {
+		this.vida = vida;
+		this.ataque = ataque;
+		this.agilidad = agilidad;
+		this.nombre = nombre;
+	}
+
+	public String getNombre() {
+		return nombre;
+	}
+
+	public void recivirDano(int dano){
+		vida -= dano;
+		if (vida<=0)
+			morir();
+	}
+
+	public void morir(){
+		System.out.println("Muerto");
+	}
 	
-	public int getVida() {
+	protected int getVida() {
 		return vida;
 	}
-	public void setVida(int vida) {
+
+	protected void setVida(int vida) {
 		this.vida = vida;
 	}
-	public int getAtaque() {
+
+	protected int getAtaque() {
 		return ataque;
 	}
-	public void setAtaque(int ataque) {
+
+	protected void setAtaque(int ataque) {
 		this.ataque = ataque;
 	}
+
 	public int getAgilidad() {
 		return agilidad;
 	}
-	public void setAgilidad(int agilidad) {
+
+	protected void setAgilidad(int agilidad) {
 		this.agilidad = agilidad;
 	}
-	
-	public Personajes(int vida, int ataque, int agilidad) {
-		this.vida = vida;
-		this.ataque = ataque;
-		this.agilidad = agilidad;
-	}
-	
+
+	abstract void accion();
 }
 /*
 Clase abstracta que sirve como base de todos los personajes,
