@@ -18,13 +18,7 @@ public abstract class Personajes {
 		return nombre;
 	}
 
-	public void recivirDano(int dano){
-		vida -= dano;
-		if (vida<=0)
-			morir();
-	}
-
-	public void morir(){
+	protected void morir(){
 		System.out.println("Muerto");
 	}
 	
@@ -32,8 +26,11 @@ public abstract class Personajes {
 		return vida;
 	}
 
-	protected void setVida(int vida) {
-		this.vida = vida;
+    // No pone la cantidad de vida sino que modifica la vida de pendiendo de la cantidad.
+	public void setVida(int cantidar) {
+		vida += cantidar;
+		if (vida<=0)
+			morir();
 	}
 
 	protected int getAtaque() {
