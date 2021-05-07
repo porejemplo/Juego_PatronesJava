@@ -50,6 +50,7 @@ public abstract class Personajes {
 	}
 
 	abstract void accion();
+	
 }
 /*
 Clase abstracta que sirve como base de todos los personajes,

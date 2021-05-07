@@ -1,15 +1,33 @@
 package Personajes;
 
-public class Enemigo extends Personajes {
+import java.util.Random;
 
-	public Enemigo(catEnemigo enemigo) {
+public abstract class Enemigo extends Personajes {
+	
+	private int agresividad;
+	
+	public Enemigo(catEnemigo enemigo, int agresividad) {
 		// No se como sacar el nombre de la variable.
 		// TODO Hay que meter el modificador dependeindo del mundo.
 		super(enemigo.getResistencia(), enemigo.getFuerza(), enemigo.getFuerza(), "Name");
+		this.agresividad = agresividad;
 	}
 
 	@Override
 	void accion() {
-		
-	}	
+		Random probabilidad = new Random();
+		int r = probabilidad.nextInt(100);
+		//if() { compribar que tiene pocion si es true usar la
+			if(r < agresividad) {
+				atacar();
+			}else {
+				defender();
+			}
+		//}
+	}
+	
+	abstract void atacar();
+	abstract void defender();
+	abstract void tomarPocion();
+	
 }
