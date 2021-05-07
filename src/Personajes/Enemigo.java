@@ -15,15 +15,20 @@ public abstract class Enemigo extends Personajes {
 
 	@Override
 	void accion() {
+		
 		Random probabilidad = new Random();
 		int r = probabilidad.nextInt(100);
-		//if() { compribar que tiene pocion si es true usar la
+		if(!this.paralizado) {
+			//if() { compribar que tiene pocion si es true usar la
 			if(r < agresividad) {
 				atacar();
 			}else {
 				defender();
 			}
-		//}
+			//Implementar si usa pocion quitar el estado
+			//usar pocion contador = 0;
+			//}
+		}
 	}
 	
 	abstract void atacar();

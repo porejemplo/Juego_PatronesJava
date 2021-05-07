@@ -6,7 +6,8 @@ public abstract class Personajes {
 	private int ataque;
 	private int agilidad;
 	private String nombre;
-	private boolean paralizado = false;
+	public boolean paralizado = false;
+	Estado estado;
 
 	public Personajes(int vida, int ataque, int agilidad, String nombre) {
 		this.vida = vida;
