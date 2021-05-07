@@ -6,6 +6,7 @@ public abstract class Personajes {
 	private int ataque;
 	private int agilidad;
 	private String nombre;
+	private boolean paralizado = false;
 
 	public Personajes(int vida, int ataque, int agilidad, String nombre) {
 		this.vida = vida;
@@ -49,6 +50,14 @@ public abstract class Personajes {
 		this.agilidad = agilidad;
 	}
 
+	public boolean isParalizado() {
+		return paralizado;
+	}
+
+	public void setParalizado(boolean paralizado) {
+		this.paralizado = paralizado;
+	}
+	
 	abstract void accion();
 	
 }

@@ -13,7 +13,6 @@ public class Jugador extends Personajes {
 	public Jugador(int vida, int ataque, int agilidad, String nombre) {
 		super(vida, ataque, agilidad, nombre);
 	}
-
 	@Override
 	void accion() {
 		Scanner entrada = new Scanner(System.in);
