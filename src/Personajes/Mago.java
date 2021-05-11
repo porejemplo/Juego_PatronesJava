@@ -7,8 +7,12 @@ public class Mago extends Personaje{
 	}
 
 	@Override
-	void accion() {
-		System.out.println("Accion del Mago");
+	public void accion() {
+		System.out.println("Ellecion de accion del mago");
 	}
 
+	@Override
+	public String toString() {
+		return "Mago" + getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
+	}
 }

@@ -14,7 +14,7 @@ public abstract class Enemigo extends Personaje {
 	}
 
 	@Override
-	void accion() {
+	public void accion() {
 		
 		Random probabilidad = new Random();
 		int r = probabilidad.nextInt(100);

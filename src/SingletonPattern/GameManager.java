@@ -1,5 +1,6 @@
 package SingletonPattern;
 
+import java.util.Random;
 import java.util.Scanner;
 
 import Personajes.*;
@@ -47,7 +48,32 @@ public class GameManager {
 
 	public void inicioJuego(Personaje enemigo, Jugador jugador){
 		this.enemigo = enemigo;
-		System.out.println(jugador.toString());
 		this.jugador = jugador;
+	}
+
+	public void Combate(){
+		while (true) {
+			System.out.println("=======================");
+			System.out.println(enemigo.toString());
+			System.out.println("-----------------------");
+			System.out.println(jugador.toString());
+			System.out.println("=======================");
+
+			//Se calcula la proridad de ataque.
+			int maxRandom = enemigo.getAgilidad().getValue() + jugador.getAgilidad().getValue();
+			Random probabilidad = new Random();
+			int r = probabilidad.nextInt(maxRandom);
+
+			if(r < enemigo.getAgilidad().getValue()){
+				// Ataca el enemigo primero
+				enemigo.accion();
+				jugador.accion();
+			}
+			else {
+				// Ataqua el jugador primero.
+				jugador.accion();
+				enemigo.accion();
+			}
+		}
 	}
 }

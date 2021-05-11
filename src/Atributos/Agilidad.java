@@ -8,7 +8,7 @@ public class Agilidad extends DecoradorAgilidad {
 	}
 
 	@Override
-	public int getAgilidad() {
+	public int getValue() {
 		return value;
 	}
 

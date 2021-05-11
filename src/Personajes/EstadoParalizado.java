@@ -19,10 +19,11 @@ public class EstadoParalizado implements Estado{
 		int numAleatorio = r.nextInt(100);
 		if(numAleatorio < fuerza) {
 			personaje.setParalizado(true);
-			setDuracion(getDuracion() - 1);
 		}
+		setDuracion(getDuracion() - 1);
 	}
 
+	@Override
 	public int getDuracion() {
 		return duracion;
 	}

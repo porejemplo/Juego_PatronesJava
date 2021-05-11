@@ -25,4 +25,8 @@ public class EnemigoPasivo extends Enemigo{
 		
 	}
 
+	@Override
+	public String toString() {
+		return "Mago" + getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
+	}
 }

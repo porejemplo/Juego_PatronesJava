@@ -7,7 +7,12 @@ public class Arquero extends Personaje{
 	}
 	
 	@Override
-	void accion() {
-		System.out.println("Accion del Mago");
+	public void accion() {
+		System.out.println("Accion del Arquero");
+	}
+
+	@Override
+	public String toString() {
+		return "Arquero" + getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
 	}
 }

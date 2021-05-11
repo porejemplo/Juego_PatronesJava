@@ -13,6 +13,7 @@ public abstract class Personaje {
 	private String nombre;
 	public boolean paralizado = false;
 	private Estado estado;
+	private boolean cubierto;
 
 	// Contructor
 	public Personaje (int fuerza, int vida, int agilidad, String nombre){
@@ -42,27 +43,30 @@ public abstract class Personaje {
 		this.vida = vida;
 	}
 	
-	protected DecoradorAgilidad getAgilidad() {
+	public DecoradorAgilidad getAgilidad() {
 		return agilidad;
 	}
 	protected void setAgilidad(DecoradorAgilidad agilidad) {
 		this.agilidad = agilidad;
 	}
 
-	// Funciones---------------------------------------------------------------------------------
-	public boolean isParalizado() {
-		return paralizado;
+	public void setCubierto(){
+		cubierto = true;
 	}
 
+	public boolean getParalizado() {
+		return paralizado;
+	}
 	public void setParalizado(boolean paralizado) {
 		this.paralizado = paralizado;
 	}
-
-	protected void morir(){
-		System.out.println("Muerto");
+	
+	// Funciones---------------------------------------------------------------------------------
+	public boolean estaMuerto(){
+		return vida.getVida() <= 0;
 	}
 	
-	abstract void accion();
+	public abstract void accion();
 
 	public void curar(float valor){
 		DecoradorVida defensaAux = this.getVida();
@@ -74,10 +78,16 @@ public abstract class Personaje {
 	}
 
 	public void danar(float valor){
+		if (cubierto) valor -= valor * defensa;
 		this.setVida(getVida().setVida(valor));
 	}
+
+	public abstract String toString();
+
+	public void turno(){
+		this.paralizado = false;
+		this.cubierto = false;
+		if (estado.getDuracion() <= 0)
+			this.estado.actuar(this);
+	}
 }
-/*
-Clase abstracta que sirve como base de todos los personajes,
-	El jugador elegira al principio de la partida uno de estos.
-*/

@@ -16,6 +16,7 @@ public class EstadoQuemado implements Estado{
 		setDuracion(getDuracion() - 1);
 	}
 
+	@Override
 	public int getDuracion() {
 		return duracion;
 	}

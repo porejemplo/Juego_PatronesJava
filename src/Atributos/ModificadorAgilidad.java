@@ -10,8 +10,8 @@ public class ModificadorAgilidad extends DecoradorAgilidad {
 	}
 
 	@Override
-	public int getAgilidad() {
-		return decoradorAgilidad.getAgilidad() + valor;
+	public int getValue() {
+		return decoradorAgilidad.getValue() + valor;
 	}
 
 	@Override

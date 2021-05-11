@@ -22,7 +22,10 @@ public class EnemigoFiftyFifty extends Enemigo{
 	@Override
 	void tomarPocion() {
 		// TODO Auto-generated method stub
-		
 	}
 
+	@Override
+	public String toString() {
+		return "Mago" + getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
+	}
 }

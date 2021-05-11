@@ -7,7 +7,12 @@ public class Caballero extends Personaje{
 	}
 	
 	@Override
-	void accion() {
+	public void accion() {
 		System.out.println("Accion del Mago");
+	}
+
+	@Override
+	public String toString() {
+		return "Borrame eduardo plss";
 	}
 }

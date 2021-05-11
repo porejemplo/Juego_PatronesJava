@@ -22,8 +22,11 @@ public class EnemigoAgresivo extends Enemigo{
 	@Override
 	void tomarPocion() {
 		// TODO Auto-generated method stub
-		//Llamar al game managar para tomar poción
+		//Llamar al game managar para tomar pociï¿½n
 	}
 
-	
+	@Override
+	public String toString() {
+		return "Agresivo" + getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
+	}
 }
