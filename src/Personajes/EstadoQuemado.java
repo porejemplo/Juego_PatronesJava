@@ -1,20 +1,18 @@
 package Personajes;
 
-public class EstadoEnvenenado implements Estado{
+public class EstadoQuemado implements Estado{
 
 	private int fuerza;
 	private int duracion;
 	
-	public EstadoEnvenenado(int fuerza, int duracion) {
-		// TODO Auto-generated constructor stub
+	public EstadoQuemado(int fuerza, int duracion) {
 		this.fuerza = fuerza;
 		this.duracion = duracion;
 	}
 	
 	@Override
 	public void actuar(Personajes personaje) {
-		// TODO Auto-generated method stub
-		personaje.setVida(-fuerza);
+		personaje.getDefensa().setDefensa(fuerza);
 		setDuracion(getDuracion() - 1);
 	}
 

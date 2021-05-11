@@ -23,7 +23,7 @@ public class testPersonajes {
 				case 1:
 					System.out.println("Eres Caballero");
 					Caballero jugador = new Caballero();
-					System.out.println(jugador.getVida() + " " + jugador.getAtaque() + " " + jugador.getVida());
+					System.out.println(jugador.toString());
 					salir = true;
 					break;
 				case 2:

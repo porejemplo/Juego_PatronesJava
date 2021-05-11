@@ -1,6 +1,7 @@
 package Personajes;
 
 import Pociones.Pocion;
+import Atributos.*;
 
 import java.util.Scanner;
 import java.util.InputMismatchException;
@@ -9,10 +10,12 @@ import java.util.ArrayList;
 public class Jugador extends Personajes {
 
 	ArrayList<Pocion> pociones = new ArrayList<Pocion>();
-
-	public Jugador(int vida, int ataque, int agilidad, String nombre) {
-		super(vida, ataque, agilidad, nombre);
+	
+	public Jugador(float ataque, int vida, int agilidad, String nombre) {
+		super(ataque, vida, agilidad, nombre);
 	}
+
+	//Funciones
 	@Override
 	void accion() {
 		Scanner entrada = new Scanner(System.in);
@@ -43,5 +46,9 @@ public class Jugador extends Personajes {
 				entrada.next();
 			}
 		}
-	}	
+	}
+
+	public String toString(){
+		return getDano().toString(-3) + "\n" + getDefensa().toString(0) + "\n" + getAgilidad().toString(0);
+	}
 }

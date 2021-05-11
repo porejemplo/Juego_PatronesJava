@@ -3,14 +3,14 @@ package Pociones;
 import Personajes.Personajes;
 
 public class PocionVida implements Pocion {
-	public int cantidad = 0;
+	public float cantidad = 0;
 
-	public PocionVida (int cantidad){
+	public PocionVida (float cantidad){
 		this.cantidad = cantidad;
 	}
 
 	@Override
 	public void utiliar(Personajes person) {
-		person.setVida(cantidad);
+		person.curar(this.cantidad);
 	}
 }
