@@ -2,7 +2,7 @@ package Personajes;
 
 import java.util.Random;
 
-public abstract class Enemigo extends Personajes {
+public abstract class Enemigo extends Personaje {
 	
 	private int agresividad;
 	

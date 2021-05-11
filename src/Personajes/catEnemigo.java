@@ -1,9 +1,9 @@
 package Personajes;
 
 public enum catEnemigo {
-	guerrero(1,2,3),
-	hechicero (1,1,2),
-	mutante (3,2,1);
+	guerrero(4,4,7),
+	hechicero (4,7,4),
+	mutante (7,4,4);
 
 	private final int fuerza;
 	private final int resistencia;

@@ -2,20 +2,23 @@ package Personajes;
 
 import Atributos.*;
 
-public abstract class Personajes {
-	
+public abstract class Personaje {
 	private DecoradorDano dano;
+	// Porcentage el dano del arma que no se peirde en afilado.
 	private float fuerza;
-	private DecoradorDefensa defensa;
+	private DecoradorVida vida;
+	// provabilidad de parar un ataque al defenderse.
+	private float defensa;
 	private DecoradorAgilidad agilidad;
 	private String nombre;
 	public boolean paralizado = false;
 	private Estado estado;
 
 	// Contructor
-	public Personajes (float fuerza, int vida, int agilidad, String nombre){
-		this.fuerza = fuerza;
-		this.defensa = new Vida(vida);
+	public Personaje (int fuerza, int vida, int agilidad, String nombre){
+		this.fuerza = ((float)fuerza)/10;
+		this.vida = new Vida((int)vida);
+		this.defensa = vida;
 		this.agilidad = new Agilidad(agilidad);
 		this.nombre = nombre;
 	}
@@ -32,11 +35,11 @@ public abstract class Personajes {
 		this.dano = dano;
 	}
 	
-	protected DecoradorDefensa getDefensa() {
-		return defensa;
+	protected DecoradorVida getVida() {
+		return vida;
 	}
-	protected void setDefensa(DecoradorDefensa defensa) {
-		this.defensa = defensa;
+	protected void setVida(DecoradorVida vida) {
+		this.vida = vida;
 	}
 	
 	protected DecoradorAgilidad getAgilidad() {
@@ -62,12 +65,16 @@ public abstract class Personajes {
 	abstract void accion();
 
 	public void curar(float valor){
-		DecoradorDefensa defensaAux = this.getDefensa();
+		DecoradorVida defensaAux = this.getVida();
 
-        while (defensaAux instanceof ModificadorDefensa) {
-            defensaAux = ((ModificadorDefensa) defensaAux).getDecoradorDefensa();
+        while (defensaAux instanceof ModificadorVida) {
+            defensaAux = ((ModificadorVida) defensaAux).getDecoradorVida();
         }
         ((Vida)defensaAux).curar(valor);
+	}
+
+	public void danar(float valor){
+		this.setVida(getVida().setVida(valor));
 	}
 }
 /*

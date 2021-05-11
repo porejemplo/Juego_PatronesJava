@@ -1,6 +1,6 @@
 package Personajes;
 
-public class Caballero extends Personajes{
+public class Caballero extends Personaje{
 	
 	public Caballero() {
 		super(90, 13, 7, "Caballero");

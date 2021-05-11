@@ -1,6 +1,6 @@
 package Personajes;
 
-public class Arquero extends Personajes{
+public class Arquero extends Personaje{
 
 	public Arquero() {
 		super(50, 13, 20, "Arquero");

@@ -13,7 +13,7 @@ public class EstadoParalizado implements Estado{
 	}
 	
 	@Override
-	public void actuar(Personajes personaje) {
+	public void actuar(Personaje personaje) {
 		// TODO Auto-generated method stub
 		Random r = new Random();
 		int numAleatorio = r.nextInt(100);

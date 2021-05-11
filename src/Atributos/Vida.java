@@ -1,6 +1,6 @@
 package Atributos;
 
-public class Vida extends DecoradorDefensa {
+public class Vida extends DecoradorVida {
 	private float valor;
 	private float maxVida;
 
@@ -10,12 +10,12 @@ public class Vida extends DecoradorDefensa {
 	}
 
 	@Override
-	public float getDefensa() {
+	public float getVida() {
 		return valor;
 	}
 
 	@Override
-	public DecoradorDefensa setDefensa(float valor) {
+	public DecoradorVida setVida(float valor) {
 		this.valor -= valor;
 		if(this.valor <= 0){
 			// TODO meter una llamada al game manager para terminar el juego.
@@ -34,7 +34,7 @@ public class Vida extends DecoradorDefensa {
 
 	@Override
 	public String toString(float modificador) {
-		return Float.toString(modificador) + " " + Float.toString(valor) + "/" + Float.toString(maxVida);
+		return Float.toString(modificador) + " " + Float.toString(valor) + "/" + Integer.toString((int)maxVida);
 	}
 
 }

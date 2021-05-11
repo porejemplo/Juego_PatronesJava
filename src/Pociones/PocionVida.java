@@ -1,6 +1,6 @@
 package Pociones;
 
-import Personajes.Personajes;
+import Personajes.Personaje;
 
 public class PocionVida implements Pocion {
 	public float cantidad = 0;
@@ -10,7 +10,7 @@ public class PocionVida implements Pocion {
 	}
 
 	@Override
-	public void utiliar(Personajes person) {
+	public void utiliar(Personaje person) {
 		person.curar(this.cantidad);
 	}
 }

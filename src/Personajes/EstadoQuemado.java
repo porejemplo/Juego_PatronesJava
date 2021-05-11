@@ -11,8 +11,8 @@ public class EstadoQuemado implements Estado{
 	}
 	
 	@Override
-	public void actuar(Personajes personaje) {
-		personaje.getDefensa().setDefensa(fuerza);
+	public void actuar(Personaje personaje) {
+		personaje.danar(fuerza);
 		setDuracion(getDuracion() - 1);
 	}
 

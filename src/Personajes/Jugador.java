@@ -7,12 +7,13 @@ import java.util.Scanner;
 import java.util.InputMismatchException;
 import java.util.ArrayList;
 
-public class Jugador extends Personajes {
+public class Jugador extends Personaje {
 
 	ArrayList<Pocion> pociones = new ArrayList<Pocion>();
 	
-	public Jugador(float ataque, int vida, int agilidad, String nombre) {
+	public Jugador(int ataque, int vida, int agilidad, String nombre) {
 		super(ataque, vida, agilidad, nombre);
+		this.setDano(new Arma("Punito", 3, 1));
 	}
 
 	//Funciones
@@ -49,6 +50,6 @@ public class Jugador extends Personajes {
 	}
 
 	public String toString(){
-		return getDano().toString(-3) + "\n" + getDefensa().toString(0) + "\n" + getAgilidad().toString(0);
+		return getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
 	}
 }

@@ -1,41 +1,41 @@
 package Atributos;
 
-public class ModificadorDefensa extends DecoradorDefensa {
+public class ModificadorVida extends DecoradorVida {
 	private int valor;
-	private DecoradorDefensa decoradorDefensa;
+	private DecoradorVida decoradorVida;
 
 	// Contructor
-	public ModificadorDefensa(int valor, DecoradorDefensa decoradorDefensa){
+	public ModificadorVida(int valor, DecoradorVida decoradorVida){
 		this.valor = valor;
-		this.decoradorDefensa = decoradorDefensa;
+		this.decoradorVida = decoradorVida;
 	}
 
 	// Getters y setters
 	@Override
-	public float getDefensa() {
-		return decoradorDefensa.getDefensa() + valor;
+	public float getVida() {
+		return decoradorVida.getVida() + valor;
 	}
 	@Override
-	public DecoradorDefensa setDefensa(float valor) {
+	public DecoradorVida setVida(float valor) {
 		// se realiza la operacion
 		this.valor -= valor;
 		// ... si se ha terminado la duraciondel decorador ...
 		if(this.valor <= 0){
 			// ... se le pasa el resto del valor al siguente deorador ...
-			return decoradorDefensa.setDefensa(-this.valor);
+			return decoradorVida.setVida(-this.valor);
 		}
 		// Si no se ha destruido el decorador se devuleve este,
 		// y de esta manera mantenera descartar los decoradores rotos.
 		return this;
 	}
 
-	public DecoradorDefensa getDecoradorDefensa(){
-		return this.decoradorDefensa;
+	public DecoradorVida getDecoradorVida(){
+		return this.decoradorVida;
 	}
 
 	// Funciones
 	@Override
 	public String toString(float modificador) {
-		return decoradorDefensa.toString(valor + modificador);
+		return decoradorVida.toString(valor + modificador);
 	}
 }
