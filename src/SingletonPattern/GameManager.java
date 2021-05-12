@@ -73,7 +73,7 @@ public class GameManager {
 		this.jugador.getPociones().add(new PocionParalisis(2, 2));
 	}
 
-	public int Combate(){
+	public void Combate(){
 		int contador = 0;
 		String descripcionCombate;
 		while (!jugador.estaMuerto()) {
@@ -104,7 +104,10 @@ public class GameManager {
 				descripcionCombate += (enemigo.estaMuerto()) ? "Has derrotado a " + enemigo.getNombre() : enemigo.accion();
 			}
 			System.out.println("\n" + descripcionCombate + "\n");
+			contador++;
 		}
-		return contador;
+		System.out.println("=========================================");
+		System.out.println("| Enhorabuena has aguantado " + Integer.toString(contador) + " rondas\t|");
+		System.out.println("=========================================");
 	}
 }
