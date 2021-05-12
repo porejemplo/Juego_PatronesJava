@@ -1,6 +1,6 @@
 package Pociones;
 
-import Personajes.EstadoParalizado;
+import Estados.EstadoParalizado;
 import Personajes.Personaje;
 
 public class PocionParalisis implements Pocion {
@@ -20,5 +20,10 @@ public class PocionParalisis implements Pocion {
     @Override
     public boolean getAtaque() {
         return true;
+    }
+
+    @Override
+    public String toString(){
+        return "Pocion Paralisis " + Integer.toString(valor) + "% efectividad y duracion: " + Integer.toString(duracion);
     }
 }

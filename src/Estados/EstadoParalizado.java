@@ -1,6 +1,8 @@
-package Personajes;
+package Estados;
 
 import java.util.Random;
+
+import Personajes.Personaje;
 
 public class EstadoParalizado implements Estado{
 

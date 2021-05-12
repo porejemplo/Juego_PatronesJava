@@ -14,6 +14,6 @@ public class Agilidad extends DecoradorAgilidad {
 
 	@Override
 	public String toString(int modificador) {
-		return Integer.toString(value + modificador) + "\t +" + Integer.toString(modificador);
+		return Integer.toString(value + modificador) + " +" + Integer.toString(modificador);
 	}
 }

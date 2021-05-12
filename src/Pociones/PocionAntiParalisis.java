@@ -1,6 +1,6 @@
 package Pociones;
 
-import Personajes.EstadoParalizado;
+import Estados.EstadoParalizado;
 import Personajes.Personaje;
 
 public class PocionAntiParalisis implements Pocion {
@@ -19,6 +19,6 @@ public class PocionAntiParalisis implements Pocion {
 
 	@Override
 	public String toString(){
-		return "Pocion anti Paralisis";
+		return "Pocion anti-Paralisis";
 	}
 }

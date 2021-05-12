@@ -3,7 +3,13 @@ package SingletonPattern;
 import java.util.Random;
 import java.util.Scanner;
 
+import Estados.EstadoParalizado;
 import Personajes.*;
+import Pociones.PocionAntiInflamable;
+import Pociones.PocionAntiParalisis;
+import Pociones.PocionInflamable;
+import Pociones.PocionParalisis;
+import Pociones.PocionVida;
 
 public class GameManager {
 	// Patron Singleton
@@ -15,6 +21,7 @@ public class GameManager {
 
 	private Personaje enemigo;
 	private Jugador jugador;
+	private Scanner scannerInicioJuego = new Scanner(System.in);
 
 	public Personaje getEnemigo(){
 		return enemigo;
@@ -30,7 +37,6 @@ public class GameManager {
 
 	public void inicioJuego(Personaje enemigo){
 		// Creacion del Jugador
-		Scanner entrada = new Scanner(System.in);
 		int fuerza;
 		int vida;
 		int agilidad;
@@ -38,31 +44,44 @@ public class GameManager {
 
 		do {
 			System.out.print("Nombre: ");
-			nombre = entrada.next();
+			nombre = scannerInicioJuego.next();
 			System.out.println("\nAtributos (fuerza, defensa y agilidad)");
 			System.out.println("Tienes un maximo de 15 puntos a repartir, peinsa como hacerlo.");
 			System.out.println("Tiene que haber entre 1 y 10 puntos en cada atributo.");
 			System.out.print("Fuerza: ");
-			fuerza = entrada.nextInt();
+			fuerza = scannerInicioJuego.nextInt();
 			System.out.print("Vida: ");
-			vida = entrada.nextInt();
+			vida = scannerInicioJuego.nextInt();
 			System.out.print("Agilidad: ");
-			agilidad = entrada.nextInt();
+			agilidad = scannerInicioJuego.nextInt();
 			System.out.flush();
 		} while (fuerza + vida + agilidad > 15 || fuerza<1 || vida<1 || agilidad<1 || fuerza>10 || vida>10 || agilidad>10);
 
+		// Porque mierda no se puede cerrar este scanner sin que pete.
+		//scannerInicioJuego.close();
 		inicioJuego(enemigo, new Jugador(fuerza, vida, agilidad, nombre));
 	}
 
 	public void inicioJuego(Personaje enemigo, Jugador jugador){
 		this.enemigo = enemigo;
 		this.jugador = jugador;
-		Combate();
+		this.jugador.setEstado(new EstadoParalizado(20, 5));
+		this.jugador.getPociones().add(new PocionVida(2));
+		this.jugador.getPociones().add(new PocionAntiInflamable());
+		this.jugador.getPociones().add(new PocionAntiParalisis());
+		this.jugador.getPociones().add(new PocionInflamable(2, 2));
+		this.jugador.getPociones().add(new PocionParalisis(2, 2));
 	}
 
-	public void Combate(){
+	public int Combate(){
+		int contador = 0;
 		String descripcionCombate;
 		while (!jugador.estaMuerto()) {
+			if (enemigo.estaMuerto()) {
+				// Llamar para crear un nuevo enemigo
+				System.out.println("Enemigo muerto.");
+			}
+
 			System.out.println("=======================");
 			System.out.println(enemigo.toString());
 			System.out.println("-----------------------");
@@ -77,16 +96,15 @@ public class GameManager {
 			if(r < enemigo.getAgilidad().getValue()){
 				// Ataca el enemigo primero
 				descripcionCombate = enemigo.accion() + "\n";
-				descripcionCombate += jugador.accion();
+				descripcionCombate = (enemigo.estaMuerto()) ? jugador.getNombre() + " ha muerto a manos de " + enemigo.getNombre() : jugador.accion();
 			}
 			else {
 				// Ataqua el jugador primero.
 				descripcionCombate = jugador.accion() + "\n";
-				descripcionCombate += enemigo.accion();
+				descripcionCombate += (enemigo.estaMuerto()) ? "Has derrotado a " + enemigo.getNombre() : enemigo.accion();
 			}
-
 			System.out.println("\n" + descripcionCombate + "\n");
 		}
-		System.out.println("Final del juego");
+		return contador;
 	}
 }

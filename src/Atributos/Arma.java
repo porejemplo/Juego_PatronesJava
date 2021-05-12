@@ -2,17 +2,18 @@ package Atributos;
 
 public class Arma extends DecoradorDano {
 	private String nombre;
-	private int dano;
-	private int danoMinimo;
+	private float dano;
+	private float danoMinimo;
 
-	public Arma(String nombre, double dano, double fuerza){
+	// Se le pasa la fuerza ente 0-1
+	public Arma(String nombre, float dano, float fuerza){
 		this.nombre = nombre;
-		this.dano = (int) dano;
-		danoMinimo = (int) (dano * fuerza);
+		this.dano = dano;
+		danoMinimo = dano * fuerza;
 	}
 
 	@Override
-	public int getValue(int i) {
+	public float getValue(float i) {
 		return dano + i;
 	}
 
@@ -23,8 +24,8 @@ public class Arma extends DecoradorDano {
 	}
 
 	@Override
-	public String toString(int modificador) {
-		return nombre + ": " +Integer.toString(dano + modificador) + " " + Integer.toString(modificador);
+	public String toString(float modificador) {
+		return nombre + ": " + Float.toString(dano + modificador) + " " + Float.toString(modificador);
 	}
 	
 }

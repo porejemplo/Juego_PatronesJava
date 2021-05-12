@@ -1,4 +1,6 @@
-package Personajes;
+package Estados;
+
+import Personajes.Personaje;
 
 public interface Estado {
 	void actuar (Personaje personaje);

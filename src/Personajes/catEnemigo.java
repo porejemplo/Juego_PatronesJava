@@ -1,18 +1,20 @@
 package Personajes;
 
 public enum catEnemigo {
-	guerrero(4,4,7),
-	hechicero (4,7,4),
-	mutante (7,4,4);
+	guerrero(4,4,7,"Guerrero"),
+	hechicero (4,7,4,"Hechicero"),
+	mutante (7,4,4,"Mutante");
 
 	private final int fuerza;
 	private final int resistencia;
 	private final int agilidad;
+	private final String name;
 
-	catEnemigo(int fuerza, int resistencia, int agilidad){
+	catEnemigo(int fuerza, int resistencia, int agilidad, String name){
 		this.fuerza = fuerza;
 		this.resistencia = resistencia;
 		this.agilidad = agilidad;
+		this.name = name;
 	}
 
 	public int getAgilidad() {
@@ -25,5 +27,9 @@ public enum catEnemigo {
 
 	public int getFuerza() {
 		return fuerza;
+	}
+
+	public String getName(){
+		return name;
 	}
 }

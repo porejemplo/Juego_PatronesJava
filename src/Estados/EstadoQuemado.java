@@ -1,4 +1,6 @@
-package Personajes;
+package Estados;
+
+import Personajes.Personaje;
 
 public class EstadoQuemado implements Estado{
 

@@ -1,6 +1,6 @@
 package Pociones;
 
-import Personajes.EstadoQuemado;
+import Estados.EstadoQuemado;
 import Personajes.Personaje;
 
 public class PocionInflamable implements Pocion {
@@ -20,5 +20,10 @@ public class PocionInflamable implements Pocion {
     @Override
     public boolean getAtaque() {
         return true;
+    }
+
+    @Override
+    public String toString(){
+        return "Pocion Inflamable " + Integer.toString(valor) + "DPS y duracion: " + Integer.toString(duracion);
     }
 }

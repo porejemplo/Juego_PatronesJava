@@ -1,21 +1,21 @@
 package Atributos;
 
 public class ModificadorDano extends DecoradorDano {
-	private int dano;
+	private float dano;
 	private DecoradorDano decoradorDano;
 
-	public ModificadorDano(int dano, DecoradorDano decoradorDano){
+	public ModificadorDano(float dano, DecoradorDano decoradorDano){
 		this.dano = dano;
 		this.decoradorDano = decoradorDano;
 	}
 
 	@Override
-	public int getValue(int i) {
+	public float getValue(float i) {
 		return decoradorDano.getValue(dano + i);
 	}
 
 	@Override
-	public String toString(int modificador) {
+	public String toString(float modificador) {
 		return decoradorDano.toString(dano + modificador);
 	}
 }

@@ -1,6 +1,6 @@
 package Pociones;
 
-import Personajes.EstadoQuemado;
+import Estados.EstadoQuemado;
 import Personajes.Personaje;
 
 public class PocionAntiInflamable implements Pocion {
@@ -19,6 +19,6 @@ public class PocionAntiInflamable implements Pocion {
 
 	@Override
 	public String toString(){
-		return "Pocion anti fuego";
+		return "Pocion anti-quemaduras";
 	}
 }

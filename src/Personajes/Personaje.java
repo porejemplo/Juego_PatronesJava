@@ -1,8 +1,10 @@
 package Personajes;
 
+import java.util.ArrayList;
+
 import Atributos.*;
+import Estados.Estado;
 import Pociones.Pocion;
-import SingletonPattern.GameManager;
 
 public abstract class Personaje {
 	private DecoradorDano dano;
@@ -16,6 +18,7 @@ public abstract class Personaje {
 	public boolean paralizado = false;
 	private Estado estado;
 	private boolean cubierto;
+	private ArrayList<Pocion> pociones = new ArrayList<Pocion>();
 
 	// Contructor
 	public Personaje (int fuerza, int vida, int agilidad, String nombre){
@@ -69,6 +72,14 @@ public abstract class Personaje {
 	public Estado getEstado(){
 		return this.estado;
 	}
+
+	public ArrayList<Pocion> getPociones() {
+		return pociones;
+	}
+
+	public float getFuerza(){
+		return fuerza;
+	}
 	
 	// Funciones---------------------------------------------------------------------------------
 	public abstract void usarPocion(Pocion pocion);
@@ -80,8 +91,8 @@ public abstract class Personaje {
 			aux += "\t" + getEstado().toString();
 
 		aux += "\n" + getDano().toString(0);
-		aux += "\n" + getVida().toString(0);
-		aux += "\n" + getAgilidad().toString(0);
+		aux += "\t" + getVida().toString(0);
+		aux += "\t" + getAgilidad().toString(0);
 
 		return aux;
 	}

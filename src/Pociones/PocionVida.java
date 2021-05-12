@@ -3,9 +3,9 @@ package Pociones;
 import Personajes.Personaje;
 
 public class PocionVida implements Pocion {
-	private float valor;
+	private int valor;
 
-	public PocionVida (float valor){
+	public PocionVida (int valor){
 		this.valor = valor;
 	}
 
@@ -18,4 +18,9 @@ public class PocionVida implements Pocion {
 	public boolean getAtaque() {
 		return false;
 	}
+
+	@Override
+    public String toString(){
+        return "Pocion Curacion: " + Integer.toString(valor) + " puntos.";
+    }
 }
