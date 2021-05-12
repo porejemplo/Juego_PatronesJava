@@ -12,7 +12,7 @@ public class Arma extends DecoradorDano {
 	}
 
 	@Override
-	public int getDano(int i) {
+	public int getValue(int i) {
 		return dano + i;
 	}
 

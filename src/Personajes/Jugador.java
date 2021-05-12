@@ -1,6 +1,7 @@
 package Personajes;
 
 import Pociones.Pocion;
+import SingletonPattern.GameManager;
 import Atributos.*;
 
 import java.util.Scanner;
@@ -18,14 +19,15 @@ public class Jugador extends Personaje {
 
 	//Funciones
 	@Override
-	public void accion() {
+	public String accion() {
+		//String descAccion = "-";
 		turno();
 		if (paralizado)
-			System.out.println("Jugador esta paralizado");
+			return getNombre() + "esta paralizado y no pudo moverse";
 		else {
 			Scanner entrada = new Scanner(System.in);
 			int opcion = 0;
-			while(opcion == 0){
+			while(true){
 				System.out.println("1. Attacar");
 				System.out.println("2. Defender");
 				System.out.println("3. Objeto");
@@ -34,16 +36,17 @@ public class Jugador extends Personaje {
 				try {
 					switch(opcion) {
 					case 1:
-						System.out.println(this.getNombre() + "Ataca");
-						break;
+						GameManager.getInstance().getEnemigo().danar(getDano().getValue(0));
+						return this.getNombre() + " ataca";
 					case 2:
-						System.out.println(this.getNombre() + "se Defiende");
-						break;
+						this.setCubierto();
+						return this.getNombre() + " se Defiende";
 					case 3:
-						System.out.println(this.getNombre() + "Objetos");
-						break;
+						
+						return this.getNombre() + "usa objetos";
 					default:
 						System.out.println("No es una opcion");
+						entrada.next();
 					}
 				}catch(InputMismatchException e) {
 					System.out.println("num pls");
@@ -53,8 +56,22 @@ public class Jugador extends Personaje {
 		}
 	}
 
-	public String toString(){
-		// TODO: Mostrar lista de items y estado.
-		return getDano().toString(0) + "\n" + getVida().toString(0) + "\n" + getAgilidad().toString(0);
+	@Override
+	public void usarPocion(Pocion pocion) {
+		if(pocion.getAtaque())
+			pocion.utiliar(GameManager.getInstance().getEnemigo());
+		else
+			pocion.utiliar(this);
+	}
+
+	@Override
+	public String toString() {
+		String aux = super.toString() + "\n";
+
+		for (int i = 0; i < pociones.size(); i++) {
+			aux += pociones.get(i).toString() + "||";
+		}
+
+		return aux;
 	}
 }

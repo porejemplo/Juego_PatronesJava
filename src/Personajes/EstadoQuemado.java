@@ -32,5 +32,9 @@ public class EstadoQuemado implements Estado{
 	public void setFuerza(int fuerza) {
 		this.fuerza = fuerza;
 	}
-	
+
+	@Override
+	public String toString(){
+		return "Quemadura " + Integer.toString(fuerza) + "DPS y duracion: " + Integer.toString(duracion); 
+	}
 }

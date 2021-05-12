@@ -6,6 +6,6 @@ import SingletonPattern.*;
 
 public class App {
 	public static void main(String[] args) {
-		GameManager.getInstance().inicioJuego(new Mago());
+		GameManager.getInstance().inicioJuego(new EnemigoTest(catEnemigo.hechicero));
 	}
 }

@@ -18,7 +18,6 @@ public class Vida extends DecoradorVida {
 	public DecoradorVida setVida(float valor) {
 		this.valor -= valor;
 		if(this.valor <= 0){
-			// TODO meter una llamada al game manager para terminar el juego.
 			System.out.println("Personaje muerto.");
 		}
 		return this;

@@ -14,8 +14,7 @@ public abstract class Enemigo extends Personaje {
 	}
 
 	@Override
-	public void accion() {
-		
+	public String accion() {
 		Random probabilidad = new Random();
 		int r = probabilidad.nextInt(100);
 		if(!this.paralizado) {
@@ -29,6 +28,7 @@ public abstract class Enemigo extends Personaje {
 			//usar pocion contador = 0;
 			//}
 		}
+		return "Enemigo realiza accion";
 	}
 	
 	abstract void atacar();

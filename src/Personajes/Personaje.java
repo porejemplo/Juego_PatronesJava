@@ -1,6 +1,8 @@
 package Personajes;
 
 import Atributos.*;
+import Pociones.Pocion;
+import SingletonPattern.GameManager;
 
 public abstract class Personaje {
 	private DecoradorDano dano;
@@ -60,14 +62,34 @@ public abstract class Personaje {
 	public void setParalizado(boolean paralizado) {
 		this.paralizado = paralizado;
 	}
+
+	public void setEstado(Estado estado){
+		this.estado = estado;
+	}
+	public Estado getEstado(){
+		return this.estado;
+	}
 	
 	// Funciones---------------------------------------------------------------------------------
+	public abstract void usarPocion(Pocion pocion);
+	public abstract String accion();
+	
+	public String toString() {
+		String aux = this.getNombre();
+		if (getEstado() != null && getEstado().getDuracion() > 0)
+			aux += "\t" + getEstado().toString();
+
+		aux += "\n" + getDano().toString(0);
+		aux += "\n" + getVida().toString(0);
+		aux += "\n" + getAgilidad().toString(0);
+
+		return aux;
+	}
+
 	public boolean estaMuerto(){
 		return vida.getVida() <= 0;
 	}
 	
-	public abstract void accion();
-
 	public void curar(float valor){
 		DecoradorVida defensaAux = this.getVida();
 
@@ -82,12 +104,11 @@ public abstract class Personaje {
 		this.setVida(getVida().setVida(valor));
 	}
 
-	public abstract String toString();
-
 	public void turno(){
 		this.paralizado = false;
 		this.cubierto = false;
-		if (estado.getDuracion() <= 0)
+		if (estado != null && estado.getDuracion() > 0)
 			this.estado.actuar(this);
 	}
+
 }

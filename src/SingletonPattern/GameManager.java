@@ -16,6 +16,14 @@ public class GameManager {
 	private Personaje enemigo;
 	private Jugador jugador;
 
+	public Personaje getEnemigo(){
+		return enemigo;
+	}
+	public Jugador getJugador(){
+		return jugador;
+	}
+
+	// Funciones -----------------------------------------------------------
 	public void inicioJuego(){
 		// llamar a la fabrica de enemigos por primera vez.
 	}
@@ -49,10 +57,12 @@ public class GameManager {
 	public void inicioJuego(Personaje enemigo, Jugador jugador){
 		this.enemigo = enemigo;
 		this.jugador = jugador;
+		Combate();
 	}
 
 	public void Combate(){
-		while (true) {
+		String descripcionCombate;
+		while (!jugador.estaMuerto()) {
 			System.out.println("=======================");
 			System.out.println(enemigo.toString());
 			System.out.println("-----------------------");
@@ -66,14 +76,17 @@ public class GameManager {
 
 			if(r < enemigo.getAgilidad().getValue()){
 				// Ataca el enemigo primero
-				enemigo.accion();
-				jugador.accion();
+				descripcionCombate = enemigo.accion() + "\n";
+				descripcionCombate += jugador.accion();
 			}
 			else {
 				// Ataqua el jugador primero.
-				jugador.accion();
-				enemigo.accion();
+				descripcionCombate = jugador.accion() + "\n";
+				descripcionCombate += enemigo.accion();
 			}
+
+			System.out.println("\n" + descripcionCombate + "\n");
 		}
+		System.out.println("Final del juego");
 	}
 }

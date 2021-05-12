@@ -14,7 +14,6 @@ public class EstadoParalizado implements Estado{
 	
 	@Override
 	public void actuar(Personaje personaje) {
-		// TODO Auto-generated method stub
 		Random r = new Random();
 		int numAleatorio = r.nextInt(100);
 		if(numAleatorio < fuerza) {
@@ -32,4 +31,8 @@ public class EstadoParalizado implements Estado{
 		this.duracion = duracion;
 	}
 
+	@Override
+	public String toString(){
+		return "Paralisis " + Integer.toString(fuerza) + "% y duracion: " + Integer.toString(duracion); 
+	}
 }

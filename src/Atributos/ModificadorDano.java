@@ -10,8 +10,8 @@ public class ModificadorDano extends DecoradorDano {
 	}
 
 	@Override
-	public int getDano(int i) {
-		return decoradorDano.getDano(dano + i);
+	public int getValue(int i) {
+		return decoradorDano.getValue(dano + i);
 	}
 
 	@Override
