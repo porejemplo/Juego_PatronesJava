@@ -17,9 +17,6 @@ public class Vida extends DecoradorVida {
 	@Override
 	public DecoradorVida setVida(float valor) {
 		this.valor -= valor;
-		if(this.valor <= 0){
-			System.out.println("Personaje muerto.");
-		}
 		return this;
 	}
 

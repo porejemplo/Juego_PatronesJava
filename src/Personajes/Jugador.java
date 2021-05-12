@@ -34,14 +34,14 @@ public class Jugador extends Personaje {
 					switch(opcion) {
 					case 1:
 						GameManager.getInstance().getEnemigo().danar(getDano().getValue(0));
-						return this.getNombre() + " ataca";
+						return this.getNombre() + " ataca" + calcularAfilado(GameManager.getInstance().getEnemigo());
 					case 2:
 						this.setCubierto();
 						return this.getNombre() + " se Defiende";
 					case 3:
 						System.out.print("Que objeto quieres usar: ");
 						opcion = scannerAccionJugador.nextInt();
-						if (opcion > 0 && opcion < getPociones().size()){
+						if (opcion >= 0 && opcion < getPociones().size()){
 							usarPocion(getPociones().get(opcion));
 							String auxString = this.getNombre() + " usa " + getPociones().get(opcion).toString();
 							getPociones().remove(opcion);
@@ -49,11 +49,11 @@ public class Jugador extends Personaje {
 						}
 					default:
 						System.out.println("No es una opcion");
-						scannerAccionJugador.next();
+						scannerAccionJugador.nextLine();
 					}
 				}catch(InputMismatchException e) {
 					System.out.println("num pls");
-					scannerAccionJugador.next();
+					scannerAccionJugador.nextLine();
 				}
 			}
 		}
@@ -74,11 +74,13 @@ public class Jugador extends Personaje {
 		if (getPociones().size() > 0){
 			aux += "\nPociones:\n\t";
 			for (int i = 0; i < getPociones().size(); i++) {
-				aux += Integer.toString(i) + "- " + getPociones().get(i).toString();
-				if (i%2 == 1)
-					aux += "\n\t";
-				else if (i+1 < getPociones().size())
-					aux += " || ";
+				aux += Integer.toString(i) + ") " + getPociones().get(i).toString();
+				if (i+1 < getPociones().size()) {
+					if (i%2 == 1)
+						aux += "\n\t";
+					else
+						aux += " || ";
+				}
 			}
 		}
 		return aux;

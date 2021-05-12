@@ -1,6 +1,7 @@
 package Personajes;
 
 import java.util.ArrayList;
+import java.util.Random;
 
 import Atributos.*;
 import Estados.Estado;
@@ -11,7 +12,6 @@ public abstract class Personaje {
 	// Porcentage el dano del arma que no se peirde en afilado.
 	private float fuerza;
 	private DecoradorVida vida;
-	// provabilidad de parar un ataque al defenderse.
 	private float defensa;
 	private DecoradorAgilidad agilidad;
 	private String nombre;
@@ -23,8 +23,8 @@ public abstract class Personaje {
 	// Contructor
 	public Personaje (int fuerza, int vida, int agilidad, String nombre){
 		this.fuerza = ((float)fuerza)/10;
-		this.vida = new Vida((int)vida);
-		this.defensa = vida;
+		this.vida = new Vida(vida);
+		this.defensa = (float)vida/10;
 		this.agilidad = new Agilidad(agilidad);
 		this.nombre = nombre;
 	}
@@ -35,6 +35,8 @@ public abstract class Personaje {
 	}
 	
 	protected DecoradorDano getDano() {
+		// Se calcula si se pierde afilado del arma.
+		
 		return this.dano;
 	}
 	protected void setDano(DecoradorDano dano) {
@@ -58,6 +60,9 @@ public abstract class Personaje {
 	public void setCubierto(){
 		cubierto = true;
 	}
+	public boolean getCubierto(){
+		return cubierto;
+	}
 
 	public boolean getParalizado() {
 		return paralizado;
@@ -80,6 +85,10 @@ public abstract class Personaje {
 	public float getFuerza(){
 		return fuerza;
 	}
+
+	public float getDefensa(){
+		return defensa;
+	}
 	
 	// Funciones---------------------------------------------------------------------------------
 	public abstract void usarPocion(Pocion pocion);
@@ -91,8 +100,8 @@ public abstract class Personaje {
 			aux += "\t" + getEstado().toString();
 
 		aux += "\n" + getDano().toString(0);
-		aux += "\t" + getVida().toString(0);
-		aux += "\t" + getAgilidad().toString(0);
+		aux += " || " + getVida().toString(0);
+		aux += " || " + getAgilidad().toString(0);
 
 		return aux;
 	}
@@ -111,7 +120,8 @@ public abstract class Personaje {
 	}
 
 	public void danar(float valor){
-		if (cubierto) valor -= valor * defensa;
+		if (cubierto)
+			valor -= (valor * defensa);
 		this.setVida(getVida().setVida(valor));
 	}
 
@@ -122,4 +132,13 @@ public abstract class Personaje {
 			this.estado.actuar(this);
 	}
 
+	public String calcularAfilado(Personaje otro) {
+		Random r = new Random();
+		if (r.nextInt((int)(otro.getDefensa()*10+getFuerza()*10)) >= (getFuerza()*10)) {
+			float aux = ((otro.getCubierto()) ? getVida().getVida() * 0.2f : getVida().getVida() * 0.1f);
+			getDano().desafilar(aux);
+			return " y ha perdido " + Float.toString(aux) + " de afilado.";
+		}
+		return "";
+	}
 }
