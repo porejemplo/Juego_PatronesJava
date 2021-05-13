@@ -18,7 +18,7 @@ public class PocionParalisis implements Pocion {
     }
 
     @Override
-    public boolean getAtaque() {
+    public boolean isAtaque() {
         return true;
     }
 

@@ -34,9 +34,7 @@ public abstract class Personaje {
 		return nombre;
 	}
 	
-	protected DecoradorDano getDano() {
-		// Se calcula si se pierde afilado del arma.
-		
+	public DecoradorDano getDano() {
 		return this.dano;
 	}
 	protected void setDano(DecoradorDano dano) {

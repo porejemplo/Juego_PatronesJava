@@ -18,7 +18,7 @@ public class PocionInflamable implements Pocion {
     }
 
     @Override
-    public boolean getAtaque() {
+    public boolean isAtaque() {
         return true;
     }
 

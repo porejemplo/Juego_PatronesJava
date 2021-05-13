@@ -13,7 +13,7 @@ public class PocionAntiInflamable implements Pocion {
 	}
 
 	@Override
-	public boolean getAtaque() {
+	public boolean isAtaque() {
 		return false;
 	}
 

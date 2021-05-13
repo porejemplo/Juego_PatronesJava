@@ -24,7 +24,7 @@ public class EnemigoTest extends Personaje {
 				case 2:
 				case 3:
 					GameManager.getInstance().getJugador().danar(getDano().getValue(0));
-					return this.getNombre() + " ataca" + calcularAfilado(GameManager.getInstance().getEnemigo());
+					return this.getNombre() + " ataca" + calcularAfilado(GameManager.getInstance().getJugador());
 				default:
 					return "Se han acabado las aciones del enemigo " + getNombre();
 			}
@@ -33,7 +33,7 @@ public class EnemigoTest extends Personaje {
 
 	@Override
 	public void usarPocion(Pocion pocion) {
-		if(pocion.getAtaque())
+		if(pocion.isAtaque())
 			pocion.utiliar(GameManager.getInstance().getJugador());
 		else
 			pocion.utiliar(this);

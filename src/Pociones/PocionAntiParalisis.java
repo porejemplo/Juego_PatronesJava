@@ -13,7 +13,7 @@ public class PocionAntiParalisis implements Pocion {
 	}
 
 	@Override
-	public boolean getAtaque() {
+	public boolean isAtaque() {
 		return false;
 	}
 

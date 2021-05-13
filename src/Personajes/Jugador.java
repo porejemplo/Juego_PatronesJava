@@ -61,7 +61,7 @@ public class Jugador extends Personaje {
 
 	@Override
 	public void usarPocion(Pocion pocion) {
-		if(pocion.getAtaque())
+		if(pocion.isAtaque())
 			pocion.utiliar(GameManager.getInstance().getEnemigo());
 		else
 			pocion.utiliar(this);
