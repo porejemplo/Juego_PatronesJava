@@ -76,7 +76,10 @@ public abstract class Personaje {
 		this.estado = estado;
 	}
 	public Estado getEstado(){
-		return this.estado;
+		if (estado != null && estado.getDuracion() < 1) {
+			estado = null;
+		}
+		return estado;
 	}
 
 	public ArrayList<Pocion> getPociones() {
@@ -90,6 +93,10 @@ public abstract class Personaje {
 	public float getDefensa(){
 		return defensa;
 	}
+
+	public boolean getQuemado(){
+		return getEstado() instanceof Estados.EstadoQuemado;
+	}
 	
 	// Funciones---------------------------------------------------------------------------------
 	public abstract void usarPocion(Pocion pocion);
@@ -97,10 +104,10 @@ public abstract class Personaje {
 	
 	public String toString() {
 		String aux = this.getNombre();
-		if (getEstado() != null && getEstado().getDuracion() > 0)
+		if (getEstado() != null)
 			aux += "\t" + getEstado().toString();
 
-		aux += "\n" + getDano().toString(0);
+		aux += "\n" + getDano().toString(0, 0);
 		aux += " || " + getVida().toString(0);
 		aux += " || " + getAgilidad().toString(0);
 

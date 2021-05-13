@@ -1,6 +1,6 @@
 package Atributos;
 
-public class Vida extends DecoradorVida {
+public class Vida implements DecoradorVida {
 	private float valor;
 	private float maxVida;
 
@@ -12,6 +12,11 @@ public class Vida extends DecoradorVida {
 	@Override
 	public float getVida() {
 		return valor;
+	}
+
+	@Override
+	public float getDiferencia() {
+		return maxVida - valor;
 	}
 
 	@Override
@@ -32,5 +37,4 @@ public class Vida extends DecoradorVida {
 	public String toString(float modificador) {
 		return Float.toString(modificador) + " " + Float.toString(valor) + "/" + Integer.toString((int)maxVida);
 	}
-
 }

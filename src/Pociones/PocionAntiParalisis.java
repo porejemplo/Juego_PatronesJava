@@ -21,4 +21,9 @@ public class PocionAntiParalisis implements Pocion {
 	public String toString(){
 		return "Pocion anti-Paralisis";
 	}
+
+	@Override
+	public float getValue() {
+		return 0.0f;
+	}
 }

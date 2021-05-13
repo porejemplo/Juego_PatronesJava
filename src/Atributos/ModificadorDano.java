@@ -1,6 +1,6 @@
 package Atributos;
 
-public class ModificadorDano extends DecoradorDano {
+public class ModificadorDano implements DecoradorDano {
 	private float dano;
 	private float danoMinimo;
 	private float danoMaximo;
@@ -16,6 +16,11 @@ public class ModificadorDano extends DecoradorDano {
 	@Override
 	public float getValue(float i) {
 		return decoradorDano.getValue(dano + i);
+	}
+	
+	@Override
+	public float getDanoMaximo(float danoMaximo) {
+		return decoradorDano.getDanoMaximo(danoMaximo + this.danoMaximo);
 	}
 
 	@Override
@@ -45,7 +50,8 @@ public class ModificadorDano extends DecoradorDano {
 	}
 
 	@Override
-	public String toString(float modificador) {
-		return decoradorDano.toString(dano + modificador);
+	public String toString(float modificador, float danoMaximo) {
+		return decoradorDano.toString(dano + modificador, danoMaximo + this.danoMaximo);
 	}
+
 }

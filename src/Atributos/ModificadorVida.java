@@ -1,16 +1,23 @@
 package Atributos;
 
-public class ModificadorVida extends DecoradorVida {
+public class ModificadorVida implements DecoradorVida {
 	private int valor;
+	private int valorMaximo;
 	private DecoradorVida decoradorVida;
 
 	// Contructor
 	public ModificadorVida(int valor, DecoradorVida decoradorVida){
 		this.valor = valor;
+		valorMaximo = valor;
 		this.decoradorVida = decoradorVida;
 	}
 
 	// Getters y setters
+	@Override
+	public float getDiferencia() {
+		return valorMaximo - valor;
+	}
+
 	@Override
 	public float getVida() {
 		return decoradorVida.getVida() + valor;

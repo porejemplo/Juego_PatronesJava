@@ -6,16 +6,16 @@ import Pociones.*;
 public class EnemigoTest extends Enemigo {
 	private int contador = 0;
 	private int posPocion = -1;
-    
-    public EnemigoTest(catEnemigo cEnemigo) {
-        super(cEnemigo);
+	
+	public EnemigoTest(catEnemigo cEnemigo) {
+		super(cEnemigo);
 		setNombre("Marioneta " + getNombre());
-        setDano(new Arma("Punito", 1, getFuerza()));
-    }
+		setDano(new Arma("Punito", 1, getFuerza()));
+	}
 
-    @Override
+	@Override
 	public String accion() {
-        turno();
+		turno();
 		contador++;
 		if (paralizado)
 			return getNombre() + " esta paralizado y no pudo moverse";
@@ -40,6 +40,6 @@ public class EnemigoTest extends Enemigo {
 				default:
 					return "Se han acabado las aciones del enemigo " + getNombre();
 			}
-        }
+		}
 	}
 }

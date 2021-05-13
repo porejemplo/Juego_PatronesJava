@@ -26,4 +26,9 @@ public class PocionParalisis implements Pocion {
     public String toString(){
         return "Pocion Paralisis " + Integer.toString(valor) + "% efectividad y duracion: " + Integer.toString(duracion);
     }
+
+    @Override
+	public float getValue() {
+		return (float)valor;
+	}
 }

@@ -37,7 +37,19 @@ public abstract class Enemigo extends Personaje {
 				break;
 			}
 		}
-		return posicion;    
+		return posicion;
+	}
+
+	// Se utiliza para buscar una pocion de attaque.
+	protected int buscarPocion() {
+		int posicion = -1;
+		for (int i = 0; i < getPociones().size(); i++) {
+			if (getPociones().get(i).isAtaque()) {
+				posicion = i;
+				break;
+			}
+		}
+		return posicion;
 	}
 
 	protected String usarPocion(int pocion) {

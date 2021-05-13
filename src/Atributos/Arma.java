@@ -1,6 +1,6 @@
 package Atributos;
 
-public class Arma extends DecoradorDano {
+public class Arma implements DecoradorDano {
 	private String nombre;
 	private float dano;
 	private float danoMinimo;
@@ -17,6 +17,11 @@ public class Arma extends DecoradorDano {
 	@Override
 	public float getValue(float i) {
 		return dano + i;
+	}
+
+	@Override
+	public float getDanoMaximo(float danoMaximo) {
+		return danoMaximo + this.danoMaximo;
 	}
 
 	@Override
@@ -41,7 +46,7 @@ public class Arma extends DecoradorDano {
 	}
 
 	@Override
-	public String toString(float modificador) {
-		return nombre + ": " + Float.toString(dano + modificador) + " " + Float.toString(modificador);
+	public String toString(float modificador, float danoMaximo) {
+		return nombre + ": " + Float.toString(dano + modificador) + "/" + Float.toString(danoMaximo) + " " + Float.toString(modificador);
 	}	
 }

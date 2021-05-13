@@ -23,4 +23,9 @@ public class PocionVida implements Pocion {
     public String toString(){
         return "Pocion Curacion: " + Integer.toString(valor) + " puntos.";
     }
+
+	@Override
+	public float getValue() {
+		return (float)valor;
+	}
 }

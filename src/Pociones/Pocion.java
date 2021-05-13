@@ -7,4 +7,5 @@ public interface Pocion {
 	void utiliar (Personaje person);
 	public boolean isAtaque();
 	public String toString();
+	public float getValue();
 }

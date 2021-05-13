@@ -1,6 +1,6 @@
 package Atributos;
 
-public class ModificadorAgilidad extends DecoradorAgilidad {
+public class ModificadorAgilidad implements DecoradorAgilidad {
 	private int valor;
 	private DecoradorAgilidad decoradorAgilidad;
 

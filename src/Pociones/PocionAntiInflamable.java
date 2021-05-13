@@ -21,4 +21,9 @@ public class PocionAntiInflamable implements Pocion {
 	public String toString(){
 		return "Pocion anti-quemaduras";
 	}
+
+	@Override
+	public float getValue() {
+		return 0.0f;
+	}
 }

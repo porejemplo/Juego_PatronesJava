@@ -26,4 +26,9 @@ public class PocionInflamable implements Pocion {
     public String toString(){
         return "Pocion Inflamable " + Integer.toString(valor) + "-DPS y duracion: " + Integer.toString(duracion);
     }
+
+    @Override
+	public float getValue() {
+		return (float)valor;
+	}
 }
