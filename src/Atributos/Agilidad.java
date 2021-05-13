@@ -14,6 +14,11 @@ public class Agilidad implements DecoradorAgilidad {
 
 	@Override
 	public String toString(int modificador) {
-		return Integer.toString(value + modificador) + " +" + Integer.toString(modificador);
+		return Integer.toString(value + modificador) + "/" + Integer.toString(value);
+	}
+
+	@Override
+	public DecoradorAgilidad consumir() {
+		return this;
 	}
 }

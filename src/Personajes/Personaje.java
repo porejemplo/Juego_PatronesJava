@@ -112,7 +112,7 @@ public abstract class Personaje {
 
 		aux += "\n" + getDano().toString();
 		aux += " || " + getVida().toString();
-		aux += " || " + getAgilidad().toString(0);
+		aux += " || " + getAgilidad().toString();
 
 		return aux;
 	}
@@ -134,6 +134,7 @@ public abstract class Personaje {
 	public void turno(){
 		this.paralizado = false;
 		this.cubierto = false;
+		agilidad = agilidad.consumir();
 		if (estado != null && estado.getDuracion() > 0)
 			this.estado.actuar(this);
 	}
