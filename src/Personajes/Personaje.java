@@ -8,6 +8,9 @@ import Estados.Estado;
 import Pociones.Pocion;
 
 public abstract class Personaje {
+	private static float porDesafiladoBloqueo = 0.2f;
+	private static float porDesafilado = 0.1f;
+
 	private DecoradorDano dano;
 	// Porcentage el dano del arma que no se peirde en afilado.
 	private float fuerza;
@@ -107,8 +110,8 @@ public abstract class Personaje {
 		if (getEstado() != null)
 			aux += "\t" + getEstado().toString();
 
-		aux += "\n" + getDano().toString(0, 0);
-		aux += " || " + getVida().toString(0);
+		aux += "\n" + getDano().toString();
+		aux += " || " + getVida().toString();
 		aux += " || " + getAgilidad().toString(0);
 
 		return aux;
@@ -119,18 +122,13 @@ public abstract class Personaje {
 	}
 	
 	public void curar(float valor){
-		DecoradorVida defensaAux = this.getVida();
-
-        while (defensaAux instanceof ModificadorVida) {
-            defensaAux = ((ModificadorVida) defensaAux).getDecoradorVida();
-        }
-        ((Vida)defensaAux).curar(valor);
+		getVida().darVida(valor);
 	}
 
 	public void danar(float valor){
 		if (cubierto)
 			valor -= (valor * defensa);
-		this.setVida(getVida().setVida(valor));
+		this.setVida(getVida().quitarVida(valor));
 	}
 
 	public void turno(){
@@ -143,8 +141,9 @@ public abstract class Personaje {
 	public String calcularAfilado(Personaje otro) {
 		Random r = new Random();
 		if (r.nextInt((int)(otro.getDefensa()*10+getFuerza()*10)) >= (getFuerza()*10)) {
-			float aux = ((otro.getCubierto()) ? getVida().getVida() * 0.2f : getVida().getVida() * 0.1f);
-			getDano().desafilar(aux);
+			float aux = ((otro.getCubierto()) ? getVida().getVida() * porDesafiladoBloqueo : getVida().getVida() * porDesafilado);
+			// si se rompe el decorador se pasa la referencia al siguente decorador.
+			setDano(getDano().desafilar(aux));
 			return " y ha perdido " + Float.toString(aux) + " de afilado.";
 		}
 		return "";

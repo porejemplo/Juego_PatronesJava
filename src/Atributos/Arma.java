@@ -25,28 +25,34 @@ public class Arma implements DecoradorDano {
 	}
 
 	@Override
-	public void desafilar(float val){
-		this.dano -= val;
+	public DecoradorDano desafilar(float valor){
+		this.dano -= valor;
 		if (dano < this.danoMinimo)
 			this.dano = danoMinimo;
+		return this;
 	}
 	
 	@Override
-	public float afilar(float val) {
+	public float afilar(float valor) {
 		if (dano == danoMaximo)
-			return val;
+			return valor;
 			
-		dano += val;
+		dano += valor;
 		if (dano>danoMaximo) {
-			val = dano - danoMaximo;
+			valor = dano - danoMaximo;
 			dano = danoMaximo;
-			return val;
+			return valor;
 		}
 		return 0;
 	}
 
 	@Override
-	public String toString(float modificador, float danoMaximo) {
-		return nombre + ": " + Float.toString(dano + modificador) + "/" + Float.toString(danoMaximo) + " " + Float.toString(modificador);
-	}	
+	public String toString(float modificador, float danoRestante) {
+		return nombre + ": " + Float.toString(dano + modificador) + "/" + Float.toString(this.danoMaximo) + " +" + Float.toString(danoRestante);
+	}
+
+	@Override
+	public String toString(){
+		return toString(0, danoMaximo - dano);
+	}
 }

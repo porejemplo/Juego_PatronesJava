@@ -1,40 +1,59 @@
 package Atributos;
 
 public class Vida implements DecoradorVida {
-	private float valor;
+	private float vida;
 	private float maxVida;
 
 	public Vida (int vida){
-		this.valor = vida;
+		this.vida = vida;
 		maxVida = vida;
 	}
 
 	@Override
 	public float getVida() {
-		return valor;
+		return vida;
 	}
 
 	@Override
 	public float getDiferencia() {
-		return maxVida - valor;
+		return maxVida - vida;
 	}
 
 	@Override
-	public DecoradorVida setVida(float valor) {
-		this.valor -= valor;
+	public DecoradorVida quitarVida(float valor) {
+		vida -= valor;
 		return this;
 	}
 
-	// Funciones
-	public void curar(float valor){
-		this.valor += valor;
-		if (this.valor > maxVida){
-			this.valor = maxVida;
+	@Override
+	public float darVida (float valor) {
+		if (vida == maxVida)
+			return valor;
+
+		vida += valor;
+		if (vida>maxVida) {
+			valor = vida - maxVida;
+			vida = maxVida;
+			return valor;
 		}
+		return 0;
+	}
+
+	// Funciones
+	// public void curar(float valor){
+	// 	vida += valor;
+	// 	if (vida > maxVida){
+	// 		vida = maxVida;
+	// 	}
+	// }
+
+	@Override
+	public String toString(float modificador, float vidaRestante) {
+		return Float.toString(vida + modificador) + "/" + Float.toString(maxVida) + " +" + Float.toString(vidaRestante);
 	}
 
 	@Override
-	public String toString(float modificador) {
-		return Float.toString(modificador) + " " + Float.toString(valor) + "/" + Integer.toString((int)maxVida);
+	public String toString(){
+		return toString(0, maxVida - vida);
 	}
 }
