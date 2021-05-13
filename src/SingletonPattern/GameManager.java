@@ -63,6 +63,11 @@ public class GameManager {
 
 	public void inicioJuego(Personaje enemigo, Jugador jugador){
 		this.enemigo = enemigo;
+		this.enemigo.getPociones().add(new PocionVida(2));
+		this.enemigo.getPociones().add(new PocionAntiInflamable());
+		this.enemigo.getPociones().add(new PocionAntiParalisis());
+		this.enemigo.getPociones().add(new PocionInflamable(2, 2));
+		this.enemigo.getPociones().add(new PocionParalisis(2, 2));
 		this.jugador = jugador;
 		this.jugador.getPociones().add(new PocionVida(2));
 		this.jugador.getPociones().add(new PocionAntiInflamable());

@@ -1,4 +1,4 @@
-package Personajes;
+package Personajes.Enemigos;
 
 public enum catEnemigo {
 	guerrero(4,4,7,"Guerrero"),

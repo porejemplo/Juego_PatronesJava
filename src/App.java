@@ -1,4 +1,5 @@
-import Personajes.*;
+import Personajes.Enemigos.EnemigoTest;
+import Personajes.Enemigos.catEnemigo;
 import SingletonPattern.*;
 
 public class App {

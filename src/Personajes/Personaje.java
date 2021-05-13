@@ -33,6 +33,9 @@ public abstract class Personaje {
 	public String getNombre() {
 		return nombre;
 	}
+	public void setNombre(String nombre) {
+		this.nombre = nombre;
+	}
 	
 	public DecoradorDano getDano() {
 		return this.dano;

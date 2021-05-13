@@ -1,14 +1,14 @@
-package Personajes;
+package Personajes.Enemigos;
 
 import java.util.Random;
 
-public abstract class Enemigo extends Personaje {
+import Personajes.Personaje;
+
+public abstract class EnemigoEduardo extends Personaje {
 	
 	private int agresividad;
 	
-	public Enemigo(catEnemigo enemigo, int agresividad) {
-		// No se como sacar el nombre de la variable.
-		// TODO Hay que meter el modificador dependeindo del mundo.
+	public EnemigoEduardo(catEnemigo enemigo, int agresividad) {
 		super(enemigo.getResistencia(), enemigo.getFuerza(), enemigo.getFuerza(), "Name");
 		this.agresividad = agresividad;
 	}
