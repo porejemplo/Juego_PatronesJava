@@ -13,6 +13,11 @@ public class Agilidad implements DecoradorAgilidad {
 	}
 
 	@Override
+	public String toString() {
+		return toString(0);
+	}
+
+	@Override
 	public String toString(int modificador) {
 		return Integer.toString(value + modificador) + "/" + Integer.toString(value);
 	}

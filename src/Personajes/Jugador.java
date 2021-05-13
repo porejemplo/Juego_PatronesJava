@@ -14,6 +14,10 @@ public class Jugador extends Personaje {
 	public Jugador(int ataque, int vida, int agilidad, String nombre) {
 		super(ataque, vida, agilidad, nombre);
 		this.setDano(new Arma("Punito", 3, getFuerza()));
+		this.setAgilidad(new ModificadorAgilidad(2, 1, getAgilidad()));
+		this.setAgilidad(new ModificadorAgilidad(2, 2, getAgilidad()));
+		this.setAgilidad(new ModificadorAgilidad(-2, 3, getAgilidad()));
+		this.setAgilidad(new ModificadorAgilidad(2, 4, getAgilidad()));
 	}
 
 	//Funciones

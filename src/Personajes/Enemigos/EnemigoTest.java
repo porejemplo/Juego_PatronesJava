@@ -22,19 +22,14 @@ public class EnemigoTest extends Enemigo {
 		else {
 			switch (contador) {
 				case 1:
-					posPocion = buscarPocion(PocionInflamable.class);
-					if (posPocion < 0) {
-						return  getNombre() + " no tiene la pocion.";
-					}
-					return usarPocion(posPocion);
+					// posPocion = buscarPocion(PocionInflamable.class);
+					// if (posPocion < 0) {
+					// 	return  getNombre() + " no tiene la pocion.";
+					// }
+					// return usarPocion(posPocion);
 				case 2:
-					posPocion = buscarPocion(PocionInflamable.class);
-					if (posPocion < 0) {
-						return  getNombre() + " no tiene la pocion.";
-					}
-					return usarPocion(posPocion);
 				case 3:
-					return atacar();
+					//return atacar();
 				case 4:
 					return defender();
 				default:
