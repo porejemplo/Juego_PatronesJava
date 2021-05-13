@@ -4,11 +4,6 @@ import java.util.Random;
 import java.util.Scanner;
 
 import Personajes.*;
-import Pociones.PocionAntiInflamable;
-import Pociones.PocionAntiParalisis;
-import Pociones.PocionInflamable;
-import Pociones.PocionParalisis;
-import Pociones.PocionVida;
 
 public class GameManager {
 	// Patron Singleton
