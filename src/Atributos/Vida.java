@@ -39,14 +39,6 @@ public class Vida implements DecoradorVida {
 		return 0;
 	}
 
-	// Funciones
-	// public void curar(float valor){
-	// 	vida += valor;
-	// 	if (vida > maxVida){
-	// 		vida = maxVida;
-	// 	}
-	// }
-
 	@Override
 	public String toString(float modificador, float vidaRestante) {
 		return Float.toString(vida + modificador) + "/" + Float.toString(maxVida) + " +" + Float.toString(vidaRestante);
