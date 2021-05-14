@@ -16,7 +16,7 @@ public abstract class Personaje {
 	private float fuerza;
 	private DecoradorVida decoradorVida;
 	private float defensa;
-	private DecoradorAgilidad agilidad;
+	private DecoradorAgilidad decoradorAgilidad;
 	private String nombre;
 	public boolean paralizado = false;
 	private Estado estado;
@@ -28,7 +28,7 @@ public abstract class Personaje {
 		this.fuerza = ((float)fuerza)/10;
 		this.decoradorVida = new Vida(vida);
 		this.defensa = (float)vida/10;
-		this.agilidad = new Agilidad(agilidad);
+		decoradorAgilidad = new Agilidad(agilidad);
 		this.nombre = nombre;
 	}
 
@@ -61,15 +61,19 @@ public abstract class Personaje {
 		this.decoradorVida = decoradorVida;
 	}
 	public void addDecoradorVida (ModificadorVida decoradorVida) {
-		decoradorVida.setDecoradorVida(decoradorVida);;
+		decoradorVida.setDecoradorVida(this.decoradorVida);;
 		this.decoradorVida = decoradorVida;
 	}
 	
 	public DecoradorAgilidad getAgilidad() {
-		return agilidad;
+		return decoradorAgilidad;
 	}
-	protected void setAgilidad(DecoradorAgilidad agilidad) {
-		this.agilidad = agilidad;
+	protected void setAgilidad(DecoradorAgilidad decoradorAgilidad) {
+		this.decoradorAgilidad = decoradorAgilidad;
+	}
+	public void addAgilidad (ModificadorAgilidad modificadorAgilidad) {
+		modificadorAgilidad.setDecoradorAgilidad(decoradorAgilidad);
+		decoradorAgilidad = modificadorAgilidad;
 	}
 
 	public void setCubierto(){
@@ -145,7 +149,7 @@ public abstract class Personaje {
 	public void turno(){
 		this.paralizado = false;
 		this.cubierto = false;
-		agilidad = agilidad.consumir();
+		decoradorAgilidad = decoradorAgilidad.consumir();
 		if (estado != null && estado.getDuracion() > 0)
 			this.estado.actuar(this);
 	}
@@ -156,7 +160,7 @@ public abstract class Personaje {
 			float aux = ((otro.getCubierto()) ? decoradorDano.getValue() * porDesafiladoBloqueo : decoradorDano.getValue() * porDesafilado);
 			// si se rompe el decorador se pasa la referencia al siguente decorador.
 			decoradorDano = decoradorDano.desafilar(aux);
-			return " y ha perdido " + Float.toString(aux) + " de afilado.";
+			return String.format(" y ha perdido %.02f afilado.", aux);
 		}
 		return "";
 	}

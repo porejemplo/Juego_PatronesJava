@@ -73,11 +73,11 @@ public class GameManager {
 				System.out.println("Enemigo muerto.");
 			}
 
-			System.out.println("=====================================================================");
+			System.out.println("=======================================================================================================");
 			System.out.println(enemigo.toString());
-			System.out.println("---------------------------------------------------------------------");
+			System.out.println("-------------------------------------------------------------------------------------------------------");
 			System.out.println(jugador.toString());
-			System.out.println("=====================================================================");
+			System.out.println("=======================================================================================================");
 
 			//Se calcula la proridad de ataque.
 			int maxRandom = enemigo.getAgilidad().getValue() + jugador.getAgilidad().getValue();

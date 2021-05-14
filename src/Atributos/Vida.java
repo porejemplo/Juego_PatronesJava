@@ -38,14 +38,20 @@ public class Vida implements DecoradorVida {
 		}
 		return 0;
 	}
-
+	
 	@Override
-	public String toString(float modificador, float vidaRestante) {
-		return Float.toString(vida + modificador) + "/" + Float.toString(maxVida) + " +" + Float.toString(vidaRestante);
+	public String toString(){
+		return toString(0);
+	}
+
+	private String toString(float modificador) {
+		return String.format("%.02f/%.0f", vida + modificador, maxVida);
+		//return Float.toString(vida + modificador) + "/" + Float.toString(maxVida);
 	}
 
 	@Override
-	public String toString(){
-		return toString(0, maxVida - vida);
+	public String toString(float modificador, float vidaRestante) {
+		return toString(modificador) + String.format(" +%.02f", vidaRestante);
+		//return toString(modificador)+ " +" + Float.toString(vidaRestante);
 	}
 }

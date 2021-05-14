@@ -1,6 +1,7 @@
 package Personajes;
 
 import Pociones.Pocion;
+import Pociones.PocionAgilidad;
 import SingletonPattern.GameManager;
 import Atributos.*;
 
@@ -14,10 +15,8 @@ public class Jugador extends Personaje {
 	public Jugador(int ataque, int vida, int agilidad, String nombre) {
 		super(ataque, vida, agilidad, nombre);
 		this.setDecoradorDano(new Arma("Punito", 3, getFuerza()));
-		this.setAgilidad(new ModificadorAgilidad(2, 1, getAgilidad()));
-		this.setAgilidad(new ModificadorAgilidad(2, 3, getAgilidad()));
-		this.setAgilidad(new ModificadorAgilidad(-2, 2, getAgilidad()));
-		this.setAgilidad(new ModificadorAgilidad(2, 4, getAgilidad()));
+		getPociones().add(new PocionAgilidad(2, 4));
+		getPociones().add(new PocionAgilidad(-2, 4));
 	}
 
 	//Funciones

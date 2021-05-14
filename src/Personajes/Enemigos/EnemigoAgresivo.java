@@ -18,6 +18,11 @@ public class EnemigoAgresivo extends Enemigo {
 		int r = probabilidad.nextInt(100);
 		if (r < 68) {
 			if (r < 34) {
+				// utilizar pocion de agilidad si se tiene.
+				posPocion = buscarPocion(PocionAgilidad.class);
+				if (posPocion > 0) {
+					return usarPocion(posPocion);
+				}
 				// utilizar pocion de ataque si se tiene
 				posPocion = buscarPocion();
 				if (posPocion > 0) {
@@ -39,7 +44,7 @@ public class EnemigoAgresivo extends Enemigo {
 				if (posPocion > 0) {
 					return usarPocion(posPocion);
 				}
-				// Curarse las quemaduraas si se esta quemado y se puede.
+				// Curarse las quemaduraas si se esta quemado.
 				posPocion = (getQuemado()) ? buscarPocion(PocionAntiInflamable.class) : -1;
 				if (posPocion > 0) {
 					return usarPocion(posPocion);
@@ -47,6 +52,11 @@ public class EnemigoAgresivo extends Enemigo {
 				// utilizar pocion de afilado si se tiene y se puede.
 				posPocion = buscarPocion(PocionVida.class);
 				if (posPocion > 0 && (getDecoradorVida().getDiferencia()) >= getPociones().get(posPocion).getValue()) {
+					return usarPocion(posPocion);
+				}
+				// utilizar pocion de agilidad si se tiene.
+				posPocion = buscarPocion(PocionAgilidad.class);
+				if (posPocion > 0) {
 					return usarPocion(posPocion);
 				}
 			}

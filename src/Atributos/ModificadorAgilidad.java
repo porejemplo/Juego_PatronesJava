@@ -5,10 +5,13 @@ public class ModificadorAgilidad implements DecoradorAgilidad {
 	private int duracion;
 	private DecoradorAgilidad decoradorAgilidad;
 
-	public ModificadorAgilidad(int valor, int duracion, DecoradorAgilidad decoradorAgilidad){
+	public ModificadorAgilidad(int valor, int duracion){
 		this.valor = valor;
-		this.decoradorAgilidad = decoradorAgilidad;
 		this.duracion = duracion;
+	}
+
+	public void setDecoradorAgilidad (DecoradorAgilidad decoradorAgilidad){
+		this.decoradorAgilidad = decoradorAgilidad;
 	}
 
 	@Override
