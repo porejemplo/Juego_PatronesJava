@@ -4,6 +4,7 @@ import java.util.Random;
 import java.util.Scanner;
 
 import Personajes.*;
+import Personajes.Enemigos.Enemigo;
 
 public class GameManager {
 	// Patron Singleton
@@ -13,11 +14,11 @@ public class GameManager {
 		return gameManager;
 	}
 
-	private Personaje enemigo;
+	private Enemigo enemigo;
 	private Jugador jugador;
 	private Scanner scannerGameManager = new Scanner(System.in);
 
-	public Personaje getEnemigo(){
+	public Enemigo getEnemigo(){
 		return enemigo;
 	}
 	public Jugador getJugador(){
@@ -29,7 +30,7 @@ public class GameManager {
 		// llamar a la fabrica de enemigos por primera vez.
 	}
 
-	public void inicioJuego(Personaje enemigo){
+	public void inicioJuego(Enemigo enemigo){
 		// Creacion del Jugador
 		int fuerza;
 		int vida;
@@ -56,7 +57,7 @@ public class GameManager {
 		inicioJuego(enemigo, new Jugador(fuerza, vida, agilidad, nombre));
 	}
 
-	public void inicioJuego(Personaje enemigo, Jugador jugador){
+	public void inicioJuego(Enemigo enemigo, Jugador jugador){
 		this.enemigo = enemigo;
 		this.jugador = jugador;
 	}

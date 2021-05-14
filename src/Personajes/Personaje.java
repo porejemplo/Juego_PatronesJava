@@ -11,10 +11,10 @@ public abstract class Personaje {
 	private static float porDesafiladoBloqueo = 0.2f;
 	private static float porDesafilado = 0.1f;
 
-	private DecoradorDano dano;
+	private DecoradorDano decoradorDano;
 	// Porcentage el dano del arma que no se peirde en afilado.
 	private float fuerza;
-	private DecoradorVida vida;
+	private DecoradorVida decoradorVida;
 	private float defensa;
 	private DecoradorAgilidad agilidad;
 	private String nombre;
@@ -26,7 +26,7 @@ public abstract class Personaje {
 	// Contructor
 	public Personaje (int fuerza, int vida, int agilidad, String nombre){
 		this.fuerza = ((float)fuerza)/10;
-		this.vida = new Vida(vida);
+		this.decoradorVida = new Vida(vida);
 		this.defensa = (float)vida/10;
 		this.agilidad = new Agilidad(agilidad);
 		this.nombre = nombre;
@@ -40,18 +40,29 @@ public abstract class Personaje {
 		this.nombre = nombre;
 	}
 	
-	public DecoradorDano getDano() {
-		return this.dano;
+	public DecoradorDano getDecoradorDano() {
+		return decoradorDano;
 	}
-	protected void setDano(DecoradorDano dano) {
-		this.dano = dano;
+	protected void setDecoradorDano(DecoradorDano decoradorDano) {
+		this.decoradorDano = decoradorDano;
+	}
+	public void addDecoradorDano (ModificadorDano modificadorDano){
+		modificadorDano.setDecoradorDano(this.decoradorDano);
+		this.decoradorDano = modificadorDano;
+	}
+	public void addDecoradorDano (Arma arma) {
+		decoradorDano = arma;
 	}
 	
-	protected DecoradorVida getVida() {
-		return vida;
+	protected DecoradorVida getDecoradorVida() {
+		return decoradorVida;
 	}
-	protected void setVida(DecoradorVida vida) {
-		this.vida = vida;
+	protected void setDecoradorVida(DecoradorVida decoradorVida) {
+		this.decoradorVida = decoradorVida;
+	}
+	public void addDecoradorVida (ModificadorVida decoradorVida) {
+		decoradorVida.setDecoradorVida(decoradorVida);;
+		this.decoradorVida = decoradorVida;
 	}
 	
 	public DecoradorAgilidad getAgilidad() {
@@ -110,25 +121,25 @@ public abstract class Personaje {
 		if (getEstado() != null)
 			aux += "\t" + getEstado().toString();
 
-		aux += "\n" + getDano().toString();
-		aux += " || " + getVida().toString();
+		aux += "\n" + getDecoradorDano().toString();
+		aux += " || " + getDecoradorVida().toString();
 		aux += " || " + getAgilidad().toString();
 
 		return aux;
 	}
 
 	public boolean estaMuerto(){
-		return vida.getVida() <= 0;
+		return decoradorVida.getValue() <= 0;
 	}
 	
 	public void curar(float valor){
-		getVida().darVida(valor);
+		decoradorVida.darVida(valor);
 	}
 
 	public void danar(float valor){
 		if (cubierto)
 			valor -= (valor * defensa);
-		this.setVida(getVida().quitarVida(valor));
+			decoradorVida = getDecoradorVida().quitarVida(valor);
 	}
 
 	public void turno(){
@@ -142,9 +153,9 @@ public abstract class Personaje {
 	public String calcularAfilado(Personaje otro) {
 		Random r = new Random();
 		if (r.nextInt((int)(otro.getDefensa()*10+getFuerza()*10)) >= (getFuerza()*10)) {
-			float aux = ((otro.getCubierto()) ? getVida().getVida() * porDesafiladoBloqueo : getVida().getVida() * porDesafilado);
+			float aux = ((otro.getCubierto()) ? decoradorDano.getValue() * porDesafiladoBloqueo : decoradorDano.getValue() * porDesafilado);
 			// si se rompe el decorador se pasa la referencia al siguente decorador.
-			setDano(getDano().desafilar(aux));
+			decoradorDano = decoradorDano.desafilar(aux);
 			return " y ha perdido " + Float.toString(aux) + " de afilado.";
 		}
 		return "";

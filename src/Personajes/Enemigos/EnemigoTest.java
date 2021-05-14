@@ -10,7 +10,7 @@ public class EnemigoTest extends Enemigo {
 	public EnemigoTest(catEnemigo cEnemigo) {
 		super(cEnemigo);
 		setNombre("Marioneta " + getNombre());
-		setDano(new Arma("Punito", 1, getFuerza()));
+		// setDano(new Arma("Punito", 1, getFuerza()));
 	}
 
 	@Override
@@ -29,9 +29,9 @@ public class EnemigoTest extends Enemigo {
 					// return usarPocion(posPocion);
 				case 2:
 				case 3:
-					//return atacar();
 				case 4:
-					return defender();
+					//return defender();
+					return atacar();
 				default:
 					return "Se han acabado las aciones del enemigo " + getNombre();
 			}

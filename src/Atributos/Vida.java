@@ -10,7 +10,7 @@ public class Vida implements DecoradorVida {
 	}
 
 	@Override
-	public float getVida() {
+	public float getValue() {
 		return vida;
 	}
 

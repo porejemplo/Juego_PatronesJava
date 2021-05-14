@@ -6,9 +6,12 @@ public class ModificadorVida implements DecoradorVida {
 	private DecoradorVida decoradorVida;
 
 	// Contructor
-	public ModificadorVida(int valor, DecoradorVida decoradorVida){
+	public ModificadorVida(int valor){
 		vida = valor;
 		vidaMaxima = valor;
+	}
+
+	public void setDecoradorVida ( DecoradorVida decoradorVida) {
 		this.decoradorVida = decoradorVida;
 	}
 
@@ -19,8 +22,8 @@ public class ModificadorVida implements DecoradorVida {
 	}
 
 	@Override
-	public float getVida() {
-		return decoradorVida.getVida() + vida;
+	public float getValue() {
+		return decoradorVida.getValue() + vida;
 	}
 	@Override
 	public DecoradorVida quitarVida(float valor) {

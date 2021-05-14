@@ -5,20 +5,23 @@ public class ModificadorDano implements DecoradorDano {
 	private float danoMaximo;
 	private DecoradorDano decoradorDano;
 
-	public ModificadorDano(float dano, DecoradorDano decoradorDano){
+	public ModificadorDano(float dano){
 		this.dano = dano;
-		this.decoradorDano = decoradorDano;
 		danoMaximo = dano;
 	}
 
+	public void setDecoradorDano(DecoradorDano decoradorDano) {
+		this.decoradorDano = decoradorDano;
+	}
+
 	@Override
-	public float getValue(float i) {
-		return decoradorDano.getValue(dano + i);
+	public float getValue() {
+		return decoradorDano.getValue() + dano;
 	}
 	
 	@Override
-	public float getDanoMaximo(float danoMaximo) {
-		return decoradorDano.getDanoMaximo(danoMaximo + this.danoMaximo);
+	public float getDanoMaximo() {
+		return decoradorDano.getDanoMaximo() + danoMaximo;
 	}
 
 	@Override

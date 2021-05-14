@@ -20,7 +20,7 @@ public abstract class Enemigo extends Personaje {
 
 	// Acciones que puede hacer el enemigo.
 	protected String atacar(){
-		GameManager.getInstance().getJugador().danar(getDano().getValue(0));
+		GameManager.getInstance().getJugador().danar(getDecoradorDano().getValue());
 		return this.getNombre() + " ataca" + calcularAfilado(GameManager.getInstance().getJugador());
 	}
 

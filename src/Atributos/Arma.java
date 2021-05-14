@@ -15,13 +15,13 @@ public class Arma implements DecoradorDano {
 	}
 
 	@Override
-	public float getValue(float i) {
-		return dano + i;
+	public float getValue() {
+		return dano;
 	}
 
 	@Override
-	public float getDanoMaximo(float danoMaximo) {
-		return danoMaximo + this.danoMaximo;
+	public float getDanoMaximo() {
+		return danoMaximo;
 	}
 
 	@Override

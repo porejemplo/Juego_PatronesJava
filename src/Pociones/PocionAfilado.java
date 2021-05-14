@@ -11,7 +11,7 @@ public class PocionAfilado implements Pocion {
 
 	@Override
 	public void utiliar(Personaje person) {
-		person.getDano().afilar(valor);
+		person.getDecoradorDano().afilar(valor);
 	}
 
 	@Override

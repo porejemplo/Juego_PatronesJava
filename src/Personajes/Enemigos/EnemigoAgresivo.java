@@ -25,7 +25,7 @@ public class EnemigoAgresivo extends Enemigo {
 				}
 				// utilizar pocion de afilado si se tiene y se puede.
 				posPocion = buscarPocion(PocionAfilado.class);
-				if (posPocion > 0 && (getDano().getDanoMaximo(0.0f) - getDano().getValue(0.0f)) >= getPociones().get(posPocion).getValue()) {
+				if (posPocion > 0 && (getDecoradorDano().getDanoMaximo() - getDecoradorDano().getValue()) >= getPociones().get(posPocion).getValue()) {
 					return usarPocion(posPocion);
 				}
 			}
@@ -46,7 +46,7 @@ public class EnemigoAgresivo extends Enemigo {
 				}
 				// utilizar pocion de afilado si se tiene y se puede.
 				posPocion = buscarPocion(PocionVida.class);
-				if (posPocion > 0 && (getVida().getDiferencia()) >= getPociones().get(posPocion).getValue()) {
+				if (posPocion > 0 && (getDecoradorVida().getDiferencia()) >= getPociones().get(posPocion).getValue()) {
 					return usarPocion(posPocion);
 				}
 			}

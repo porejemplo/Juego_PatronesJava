@@ -13,7 +13,7 @@ public class Jugador extends Personaje {
 	
 	public Jugador(int ataque, int vida, int agilidad, String nombre) {
 		super(ataque, vida, agilidad, nombre);
-		this.setDano(new Arma("Punito", 3, getFuerza()));
+		this.setDecoradorDano(new Arma("Punito", 3, getFuerza()));
 		this.setAgilidad(new ModificadorAgilidad(2, 1, getAgilidad()));
 		this.setAgilidad(new ModificadorAgilidad(2, 3, getAgilidad()));
 		this.setAgilidad(new ModificadorAgilidad(-2, 2, getAgilidad()));
@@ -37,7 +37,7 @@ public class Jugador extends Personaje {
 				try {
 					switch(opcion) {
 					case 1:
-						GameManager.getInstance().getEnemigo().danar(getDano().getValue(0));
+						GameManager.getInstance().getEnemigo().danar(getDecoradorDano().getValue());
 						return this.getNombre() + " ataca" + calcularAfilado(GameManager.getInstance().getEnemigo());
 					case 2:
 						this.setCubierto();
