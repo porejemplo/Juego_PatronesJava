@@ -54,6 +54,5 @@ public class Arma implements DecoradorDano {
 	@Override
 	public String toString(float modificador, float danoRestante) {
 		return String.format("%s: %.02f/%.0f +%.02f", nombre, dano + modificador, danoMaximo, danoRestante);
-		//return nombre + ": " + Float.toString(dano + modificador) + "/" + Float.toString(this.danoMaximo) + " +" + Float.toString(danoRestante);
 	}
 }
