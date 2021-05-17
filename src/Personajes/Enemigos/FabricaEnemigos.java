@@ -13,15 +13,13 @@ public class FabricaEnemigos {
 	//funcion que crea enemigos
 	public Enemigo crearEnemigo(catEnemigo enemigo) {
 		Random r = new Random();
-		Random tipoEnemigo = new Random();
 		int auxInt = r.nextInt(3);
-		int tipo = tipoEnemigo.nextInt(1);
 		//crea un enemigo aleatorio
 		switch (auxInt) {
 			case 0:
 				enemigo = catEnemigo.guerrero;
 				//una vez creado tambien se elige aleatoriamente la naturaleza del enemigo
-				if(tipo == 0) {
+				if(auxInt % 2 == 0) {
 					Enemigo enemigoAgresivo = new EnemigoAgresivo(enemigo);
 					decorarEnemigo(enemigoAgresivo);
 					return enemigoAgresivo;
@@ -32,7 +30,7 @@ public class FabricaEnemigos {
 				}
 			case 1:
 				enemigo = catEnemigo.hechicero;
-				if(tipo == 0) {
+				if(auxInt % 2 == 0) {
 					Enemigo enemigoAgresivo = new EnemigoAgresivo(enemigo);
 					decorarEnemigo(enemigoAgresivo);
 					return enemigoAgresivo;
@@ -43,7 +41,7 @@ public class FabricaEnemigos {
 				}
 			default:
 				enemigo = catEnemigo.mutante;
-				if(tipo == 0) {
+				if(auxInt % 2 == 0) {
 					Enemigo enemigoAgresivo = new EnemigoAgresivo(enemigo);
 					decorarEnemigo(enemigoAgresivo);
 					return enemigoAgresivo;
