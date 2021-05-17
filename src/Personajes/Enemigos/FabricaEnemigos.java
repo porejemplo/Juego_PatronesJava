@@ -43,6 +43,7 @@ public class FabricaEnemigos {
 			return enemigoPasivo;
 		}
 	}
+	
 	public void decorarEnemigo(Enemigo enemigo) {
 		// Por ultimo tenemos que llamar para que le den los decoradores.
 		// decorador de armas y decorador de armaduras
