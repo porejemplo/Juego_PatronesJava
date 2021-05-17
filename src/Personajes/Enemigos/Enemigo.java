@@ -29,7 +29,7 @@ public abstract class Enemigo extends Personaje {
 		return this.getNombre() + " se Defiende";
 	}
 
-	protected int buscarPocion(Class clazz){
+	protected int buscarPocion(Class<?> clazz){
 		int posicion = -1;
 		for (int i = 0; i < getPociones().size(); i++) {
 			if (getPociones().get(i).getClass() == clazz) {
