@@ -54,7 +54,7 @@ public abstract class Personaje {
 		decoradorDano = arma;
 	}
 	
-	protected DecoradorVida getDecoradorVida() {
+	public DecoradorVida getDecoradorVida() {
 		return decoradorVida;
 	}
 	protected void setDecoradorVida(DecoradorVida decoradorVida) {
