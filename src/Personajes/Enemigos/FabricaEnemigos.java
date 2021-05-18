@@ -105,7 +105,6 @@ public class FabricaEnemigos {
 	}
 
 	private ArrayList<Pocion> darObjetosAtaque() {
-		// TODO Auto-generated method stub
 		ArrayList<Pocion> lista = new ArrayList<Pocion>();
 		Random r = new Random();
 		int pocion = r.nextInt(3);
