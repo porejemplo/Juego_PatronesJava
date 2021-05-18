@@ -87,19 +87,24 @@ public class FabricaEnemigos {
 		ArrayList<Pocion> lista = new ArrayList<Pocion>();
 		Random r = new Random();
 		int pocion = r.nextInt(3);
+		Random numPociones = new Random();
+		int pocionesDadas;
+		
 		for(int i = 0; i < pocion; i++) {
-			Pocion pocionAntiParalisis = new PocionAntiParalisis();
-			lista.add(pocionAntiParalisis);
-		}
-		pocion = r.nextInt(3);
-		for(int i = 0; i < pocion; i++) {
-			Pocion pocionAntiInflamable = new PocionAntiInflamable();
-			lista.add(pocionAntiInflamable);
-		}
-		pocion = r.nextInt(3);
-		for(int i = 0; i < pocion; i++) {
-			Pocion pocionAgilidad = new PocionAgilidad(2,4);
-			lista.add(pocionAgilidad);
+			pocionesDadas = numPociones.nextInt(3);
+			if(pocionesDadas == 0) {
+				Pocion pocionAntiParalisis = new PocionAntiParalisis();
+				lista.add(pocionAntiParalisis);
+			}
+			if(pocionesDadas == 1){
+				Pocion pocionAntiInflamable = new PocionAntiInflamable();
+				lista.add(pocionAntiInflamable);
+			}
+			if(pocionesDadas == 2){
+				Pocion pocionAgilidad = new PocionAgilidad(2,4);
+				lista.add(pocionAgilidad);
+			}
+			
 		}
 		return lista;
 	}
@@ -108,20 +113,23 @@ public class FabricaEnemigos {
 		ArrayList<Pocion> lista = new ArrayList<Pocion>();
 		Random r = new Random();
 		int pocion = r.nextInt(3);
+		Random numPociones = new Random();
+		int pocionesDadas;
 		
 		for(int i = 0; i < pocion; i++) {
-			Pocion pocionParalisis = new PocionParalisis(65, 3);
-			lista.add(pocionParalisis);
-		}
-		pocion = r.nextInt(3);
-		for(int i = 0; i < pocion; i++) {
-			Pocion pocionInflamable = new PocionInflamable(2, 4);
-			lista.add(pocionInflamable);
-		}
-		pocion = r.nextInt(3);
-		for(int i = 0; i < pocion; i++) {
-			Pocion pocionQuitarAgilidad = new PocionAgilidad(-2, 3);
-			lista.add(pocionQuitarAgilidad);
+			pocionesDadas = numPociones.nextInt(3);
+			if(pocionesDadas == 0) {
+				Pocion pocionParalisis = new PocionParalisis(65, 3);
+				lista.add(pocionParalisis);
+			}
+			if(pocionesDadas == 1){
+				Pocion pocionInflamable = new PocionInflamable(2, 4);
+				lista.add(pocionInflamable);
+			}
+			if(pocionesDadas == 2){
+				Pocion pocionQuitarAgilidad = new PocionAgilidad(-2, 3);
+				lista.add(pocionQuitarAgilidad);
+			}
 		}
 		return lista;
 	}
@@ -130,15 +138,18 @@ public class FabricaEnemigos {
 		// TODO Auto-generated method stub
 		ArrayList<Pocion> lista = new ArrayList<Pocion>();
 		Random r = new Random();
+		Random numPociones = new Random();
+		int pocionesDadas;
 		int pocion = r.nextInt(3);
 		for(int i = 0; i < pocion; i++) {
-			Pocion pocionVida = new PocionVida(3);
-			lista.add(pocionVida);
-		}
-		pocion = r.nextInt(3);
-		for(int i = 0; i < pocion; i++) {
-			Pocion pocionAfilado = new PocionAfilado(3);
-			lista.add(pocionAfilado);
+			pocionesDadas = numPociones.nextInt(2);
+			if(pocionesDadas == 0) {
+				Pocion pocionVida = new PocionVida(3);
+				lista.add(pocionVida);
+			}else {
+				Pocion pocionAfilado = new PocionAfilado(3);
+				lista.add(pocionAfilado);
+			}
 		}
 		return lista;
 	}
