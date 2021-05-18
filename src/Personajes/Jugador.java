@@ -88,4 +88,41 @@ public class Jugador extends Personaje {
 		}
 		return aux;
 	}
+
+	public void cogerArmaNueva(DecoradorDano decoradorDano) {
+		String auxString = "Quieres coger: " ;
+		if (decoradorDano instanceof Arma) {
+			auxString += decoradorDano.toString(0, decoradorDano.getDanoMaximo()*getFuerza());
+		}
+		else {
+			auxString += decoradorDano.toString();
+		}
+		auxString += "\n y descartar: " + getDecoradorDano().toString();
+		auxString += "\nQue quieres hacer con el arma del enemigo";
+		auxString += "\n1-Equipar.\t2-Descartar.";
+		System.out.println(auxString);
+
+		int opcion = -1;
+		while (opcion != 1 && opcion != 2) {
+			try {
+				opcion = scannerAccionJugador.nextInt();
+				switch (opcion) {
+					case 1:
+						setDecoradorDano(decoradorDano);
+						System.out.println("Nueva arma equipada.");
+						break;
+					case 2:
+						System.out.println("Has descartado el arma.");
+						break;
+				
+					default:
+						System.out.println("Opcion no valida.");
+						break;
+				}
+			} catch (InputMismatchException e) {
+				System.out.println("num pls");
+				scannerAccionJugador.nextLine();
+			}
+		}
+	}
 }

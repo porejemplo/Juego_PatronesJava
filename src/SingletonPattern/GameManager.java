@@ -29,11 +29,16 @@ public class GameManager {
 
 	// Funciones -----------------------------------------------------------
 	public void inicioJuego(){
-		// llamar a la fabrica de enemigos por primera vez.
-		inicioJuego(fabricaEnemigos.crearEnemigo());
+		creacionJugador();
+		this.enemigo = fabricaEnemigos.crearEnemigo();
 	}
 
 	public void inicioJuego(Enemigo enemigo){
+		creacionJugador();
+		this.enemigo = enemigo;
+	}
+
+	private void creacionJugador (){
 		// Creacion del Jugador
 		int fuerza;
 		int vida;
@@ -55,25 +60,40 @@ public class GameManager {
 			System.out.flush();
 		} while (fuerza + vida + agilidad > 15 || fuerza<1 || vida<1 || agilidad<1 || fuerza>10 || vida>10 || agilidad>10);
 
-		// Porque mierda no se puede cerrar este scanner sin que pete.
-		//scannerGameManager.close();
-		inicioJuego(enemigo, new Jugador(fuerza, vida, agilidad, nombre));
+		this.jugador = new Jugador(fuerza, vida, agilidad, nombre);
 	}
 
-	public void inicioJuego(Enemigo enemigo, Jugador jugador){
-		this.enemigo = enemigo;
-		this.jugador = jugador;
-	}
-
-	public void Combate(){
-		int contador = 0;			//Contador para las rondas que dura el juego.
+	public void Combate() {
+		int contador = 0;				//Contador para las rondas que dura el juego.
 		String descripcionCombate;
 		scannerGameManager.nextLine();	// Sino no coge la primera entrada para la pausa.
 
 		while (!jugador.estaMuerto()) {
 			if (enemigo.estaMuerto()) {
+				System.out.println("Vamos a ver que tenia el enemigo:");
+				// Gestion del arma del enemigo.
+				jugador.cogerArmaNueva(enemigo.getDecoradorDano());
+				// Gestion de los pociones del enemigo.
+				if (enemigo.getPociones().size() > 0){
+					String auxString = "Enhorabuena " + jugador.getNombre() + " has conseguido:\n\t";
+					for (int i = 0; i < enemigo.getPociones().size(); i++) {
+						auxString += Integer.toString(i) + ") " + enemigo.getPociones().get(i).toString();
+						if (i+1 < enemigo.getPociones().size()) {
+							if (i%2 == 1)
+								auxString += "\n\t";
+							else
+								auxString += " || ";
+						}
+					}
+					System.out.println(auxString);
+					jugador.getPociones().addAll(enemigo.getPociones());
+				}
+				else {
+					System.out.println("Parece que el enemigo no tenia nunguna pocion.");
+				}
 				// Llamar para crear un nuevo enemigo
-				System.out.println("Enemigo muerto.");
+				enemigo = fabricaEnemigos.crearEnemigo();
+				scannerGameManager.nextLine();
 			}
 
 			System.out.println("=======================================================================================================");

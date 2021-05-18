@@ -1,21 +1,12 @@
 package Personajes.Enemigos;
 
-import java.util.Collection;
 import java.util.Random;
 import java.util.ArrayList;
 
 import Atributos.Arma;
-import Atributos.ModificadorDano;
 import Atributos.ModificadorVida;
 import Personajes.Jugador;
-import Pociones.Pocion;
-import Pociones.PocionAfilado;
-import Pociones.PocionAgilidad;
-import Pociones.PocionAntiInflamable;
-import Pociones.PocionAntiParalisis;
-import Pociones.PocionInflamable;
-import Pociones.PocionParalisis;
-import Pociones.PocionVida;
+import Pociones.*;
 import SingletonPattern.GameManager;
 
 public class FabricaEnemigos {
@@ -29,14 +20,15 @@ public class FabricaEnemigos {
 		switch (auxInt) {
 			case 0:
 				enemigo = catEnemigo.guerrero;
-				return naturalezaEnemigo(enemigo);
+				break;
 			case 1:
 				enemigo = catEnemigo.hechicero;
-				return naturalezaEnemigo(enemigo);
+				break;
 			default:
 				enemigo = catEnemigo.mutante;
-				return naturalezaEnemigo(enemigo);
+				break;
 		}
+		return naturalezaEnemigo(enemigo);
 	}
 	
 	//Elige aleatoriamente la naturaleza del enemigo
@@ -56,7 +48,6 @@ public class FabricaEnemigos {
 	}
 	
 	public void decorarEnemigo(Enemigo enemigo) {
-		// Por ultimo tenemos que llamar para que le den los decoradores.
 		// decorador de armas
 		Random r = new Random();
 		int auxInt;
@@ -157,9 +148,9 @@ public class FabricaEnemigos {
 		// TODO Auto-generated method stub
 		Jugador jugador = GameManager.getInstance().getJugador();
 		Random r = new Random();
-		int valorRandom = (int)0.9 + r.nextInt(3)/10;
-		int defensa = (int)(jugador.getDecoradorDano().getDanoMaximo() - enemigo.getDecoradorVida().getValue()) * valorRandom;
-		System.out.printf("Daño arma 0.9-1.1, valor: %d", valorRandom);
+		float valorRandom = (int)0.9 + r.nextInt(3)/10;
+		int defensa = (int)((jugador.getDecoradorDano().getDanoMaximo() - enemigo.getDecoradorVida().getValue()) * valorRandom);
+		System.out.printf("Aleatorio armaduraXArmadura 0.9-1.1, valor: %f\n", valorRandom);
 		return new ModificadorVida(defensa);
 	}
 
@@ -169,7 +160,7 @@ public class FabricaEnemigos {
 		Random r = new Random();
 		int valorRandom = 2 + r.nextInt(3);
 		int defensa = (int)(jugador.getDecoradorDano().getDanoMaximo() - enemigo.getDecoradorVida().getValue()) / valorRandom;
-		System.out.printf("Daño arma 2-4, valor: %d", valorRandom);
+		System.out.printf("Aleatorio armaduraXArma 2-4, valor: %d\n", valorRandom);
 		return new ModificadorVida(defensa);
 	}
 
@@ -178,9 +169,9 @@ public class FabricaEnemigos {
 		Jugador jugador = GameManager.getInstance().getJugador();
 		final String nombreArma = "ArmaXArmadura";
 		Random r = new Random();
-		float valorRandom = 2+(float)r.nextInt(3);
+		float valorRandom = 2 + (float)r.nextInt(3);
 		float dano = (jugador.getDecoradorVida().getValue() + jugador.getDecoradorVida().getDiferencia()) / valorRandom;
-		System.out.printf("Daño arma 2-4, valor: %f", valorRandom);
+		System.out.printf("Aleatorio armaXArmadura 2-5, valor: %f\n", valorRandom);
 		return new Arma(nombreArma, dano, enemigo.getFuerza());
 	}
 
@@ -192,7 +183,7 @@ public class FabricaEnemigos {
 		float valorRandom = 0.9f + ((float)r.nextInt(3)/10);
 		float dano = jugador.getDecoradorDano().getValue() * valorRandom;
 		
-		System.out.printf("Daño arma 0.9-1.1, valor: %f", valorRandom);
+		System.out.printf("Aleatorio armaXArma 0.9-1.1, valor: %f\n", valorRandom);
 		return new Arma(nombreArma, dano, enemigo.getFuerza());
 	}
 	

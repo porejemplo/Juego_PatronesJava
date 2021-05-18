@@ -30,8 +30,7 @@ public class EnemigoTest extends Enemigo {
 				case 3:
 				case 4:
 				case 5:
-					return defender();
-					//return atacar();
+					return atacar();
 				default:
 					return "Se han acabado las aciones del enemigo " + getNombre();
 			}
