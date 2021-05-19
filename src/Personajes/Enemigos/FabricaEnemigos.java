@@ -34,17 +34,29 @@ public class FabricaEnemigos {
 	//Elige aleatoriamente la naturaleza del enemigo
 	public Enemigo naturalezaEnemigo(catEnemigo enemigo) {
 		Random tipo = new Random();
-		int aux = tipo.nextInt(1);
+		int aux = tipo.nextInt(3);
 		
 		if(aux == 0) {
 			Enemigo enemigoAgresivo = new EnemigoAgresivo(enemigo);
 			decorarEnemigo(enemigoAgresivo);
 			return enemigoAgresivo;
-		}else {
+		}
+		if(aux == 1){
 			Enemigo enemigoPasivo = new EnemigoPasivo(enemigo);
 			decorarEnemigo(enemigoPasivo);
 			return enemigoPasivo;
 		}
+		if(aux == 2){
+			Enemigo enemigoNormal = new EnemigoNormal(enemigo);
+			decorarEnemigo(enemigoNormal);
+			return enemigoNormal;
+		}
+		if(aux == 3){
+			Enemigo enemigoDefensivo = new EnemigoDefensivo(enemigo);
+			decorarEnemigo(enemigoDefensivo);
+			return enemigoDefensivo;
+		}
+		return null;
 	}
 	
 	public void decorarEnemigo(Enemigo enemigo) {
