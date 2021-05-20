@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <class-diagram version="1.2.4" icons="true" always-add-relationships="false" generalizations="true" realizations="true" 
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
-  <class id="1" language="java" name="SingletonPattern.GameManager" project="Juego_PatronesJava" 
-    file="/Juego_PatronesJava/src/SingletonPattern/GameManager.java" binary="false" corner="BOTTOM_RIGHT">    
+  <class id="1" language="java" name="umls.GameManager" project="Juego_PatronesJava" 
+    file="/Juego_PatronesJava/src/umls/GameManager.java" binary="false" corner="BOTTOM_RIGHT">    
     <position height="225" width="183" x="1510" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
