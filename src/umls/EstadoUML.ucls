@@ -30,7 +30,7 @@
   </interface>  
   <class id="4" language="java" name="Personajes.Personaje" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Personajes/Personaje.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="-1" width="-1" x="625" y="345"/>    
+    <position height="-1" width="-1" x="611" y="611"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -39,7 +39,7 @@
   </class>  
   <interface id="5" language="java" name="Pociones.Pocion" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/Pocion.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="135" width="130" x="1078" y="315"/>    
+    <position height="-1" width="-1" x="983" y="388"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -48,7 +48,7 @@
   </interface>  
   <class id="6" language="java" name="Pociones.PocionAfilado" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionAfilado.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="130" x="1180" y="37"/>    
+    <position height="-1" width="-1" x="1009" y="122"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -57,7 +57,7 @@
   </class>  
   <class id="7" language="java" name="Pociones.PocionAgilidad" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionAgilidad.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="130" x="1350" y="37"/>    
+    <position height="-1" width="-1" x="1184" y="118"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -66,7 +66,7 @@
   </class>  
   <class id="8" language="java" name="Pociones.PocionAntiInflamable" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionAntiInflamable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="144" x="996" y="37"/>    
+    <position height="-1" width="-1" x="831" y="115"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -75,7 +75,7 @@
   </class>  
   <class id="9" language="java" name="Pociones.PocionAntiParalisis" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionAntiParalisis.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="153" width="135" x="650" y="37"/>    
+    <position height="-1" width="-1" x="485" y="112"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -84,7 +84,7 @@
   </class>  
   <class id="10" language="java" name="Pociones.PocionInflamable" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionInflamable.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="139" x="1520" y="37"/>    
+    <position height="-1" width="-1" x="1350" y="123"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -93,7 +93,7 @@
   </class>  
   <class id="11" language="java" name="Pociones.PocionParalisis" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionParalisis.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="189" width="131" x="825" y="37"/>    
+    <position height="-1" width="-1" x="667" y="108"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -102,7 +102,7 @@
   </class>  
   <class id="12" language="java" name="Pociones.PocionVida" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/Pociones/PocionVida.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="130" x="1699" y="37"/>    
+    <position height="-1" width="-1" x="1601" y="106"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
