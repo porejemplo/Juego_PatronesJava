@@ -34,7 +34,7 @@ public class FabricaEnemigos {
 	//Elige aleatoriamente la naturaleza del enemigo
 	public Enemigo naturalezaEnemigo(catEnemigo enemigo) {
 		Random tipo = new Random();
-		int aux = tipo.nextInt(3);
+		int aux = tipo.nextInt(4);
 		
 		if(aux == 0) {
 			Enemigo enemigoAgresivo = new EnemigoAgresivo(enemigo);

@@ -17,6 +17,8 @@ public class EnemigoDefensivo extends Enemigo {
 		Random probabilidad = new Random();
 		int r = probabilidad.nextInt(100);
 		if (r < 20) {
+			//10% probabilidad de atacar
+			//10% de probabilida de usar pociones
 			if (r < 10) {
 				// utilizar pocion de agilidad si se tiene.
 				posPocion = buscarPocion(PocionAgilidad.class);
@@ -38,7 +40,9 @@ public class EnemigoDefensivo extends Enemigo {
 			return atacar();
 		}
 		else {
-			if (r < 70) {
+			//20% de probabilidad de usar la pocion
+			//60% de defender
+			if (r < 40) {
 				// Curarse de paralisis si estas paralizado.
 				posPocion = (getParalizado()) ? buscarPocion(PocionAntiParalisis.class) : -1;
 				if (posPocion > 0) {
