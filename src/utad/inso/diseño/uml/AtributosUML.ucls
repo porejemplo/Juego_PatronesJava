@@ -3,7 +3,7 @@
   associations="true" dependencies="false" nesting-relationships="true" router="FAN">  
   <class id="1" language="java" name="utad.inso.diseño.atributos.Agilidad" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/Agilidad.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="170" x="521" y="37"/>    
+    <position height="-1" width="-1" x="1038" y="552"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -12,7 +12,7 @@
   </class>  
   <class id="2" language="java" name="utad.inso.diseño.atributos.Arma" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/Arma.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="176" x="305" y="37"/>    
+    <position height="261" width="176" x="988" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -22,7 +22,7 @@
   <interface id="3" language="java" name="utad.inso.diseño.atributos.DecoradorAgilidad" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/DecoradorAgilidad.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="135" width="170" x="731" y="338"/>    
+    <position height="-1" width="-1" x="588" y="629"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
@@ -31,163 +31,155 @@
   </interface>  
   <interface id="4" language="java" name="utad.inso.diseño.atributos.DecoradorDano" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/DecoradorDano.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="176" x="41" y="338"/>    
+    <position height="171" width="176" x="724" y="338"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </interface>  
-  <interface id="5" language="java" name="utad.inso.diseño.atributos.DecoradorVida" project="Juego_PatronesJava" 
-    file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/DecoradorVida.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="171" width="180" x="1021" y="338"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </interface>  
-  <class id="6" language="java" name="utad.inso.diseño.atributos.ModificadorAgilidad" project="Juego_PatronesJava" 
+  <class id="5" language="java" name="utad.inso.diseño.atributos.ModificadorAgilidad" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/ModificadorAgilidad.java" binary="false" 
     corner="BOTTOM_RIGHT">    
-    <position height="207" width="250" x="731" y="37"/>    
+    <position height="-1" width="-1" x="881" y="760"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="7" language="java" name="utad.inso.diseño.atributos.ModificadorDano" project="Juego_PatronesJava" 
+  <class id="6" language="java" name="utad.inso.diseño.atributos.ModificadorDano" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/ModificadorDano.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="224" x="41" y="37"/>    
+    <position height="243" width="224" x="724" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="8" language="java" name="Atributos.ModificadorVida" project="Juego_PatronesJava" 
-    file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/ModificadorVida.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="261" width="218" x="1021" y="37"/>    
-    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
-      sort-features="false" accessors="true" visibility="true">      
-      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
-      <operations public="true" package="true" protected="true" private="true" static="true"/>    
-    </display>  
-  </class>  
-  <class id="9" language="java" name="utad.inso.diseño.atributos.Vida" project="Juego_PatronesJava" 
+  <class id="7" language="java" name="utad.inso.diseño.atributos.Vida" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/Vida.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="243" width="180" x="1279" y="37"/>    
+    <position height="243" width="180" x="300" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="true" package="true" protected="true" private="true" static="true"/>    
     </display>  
   </class>  
-  <class id="10" language="java" name="utad.inso.diseño.personajes.Personaje" project="Juego_PatronesJava" 
+  <class id="8" language="java" name="utad.inso.diseño.personajes.Personaje" project="Juego_PatronesJava" 
     file="/Juego_PatronesJava/src/utad/inso/diseño/personajes/Personaje.java" binary="false" corner="BOTTOM_RIGHT">    
-    <position height="783" width="232" x="289" y="134"/>    
+    <position height="220" width="164" x="520" y="37"/>    
     <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
       sort-features="false" accessors="true" visibility="true">      
       <attributes public="true" package="true" protected="true" private="true" static="true"/>      
       <operations public="false" package="false" protected="false" private="false" static="true"/>    
     </display>  
   </class>  
-  <association id="11">    
-    <end type="SOURCE" refId="6" navigable="false">      
-      <attribute id="12" name="decoradorAgilidad">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="13" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="14">    
-    <end type="SOURCE" refId="7"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="15">    
-    <end type="SOURCE" refId="7" navigable="false">      
-      <attribute id="16" name="decoradorDano">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="17" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="4" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <association id="18">    
-    <end type="SOURCE" refId="8" navigable="false">      
-      <attribute id="19" name="decoradorVida">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="20" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="21">    
-    <end type="SOURCE" refId="8"/>    
-    <end type="TARGET" refId="5"/>  
-  </realization>  
-  <realization id="22">    
+  <class id="9" language="java" name="utad.inso.diseño.atributos.ModificadorVida" project="Juego_PatronesJava" 
+    file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/ModificadorVida.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="261" width="218" x="42" y="37"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </class>  
+  <interface id="10" language="java" name="utad.inso.diseño.atributos.DecoradorVida" project="Juego_PatronesJava" 
+    file="/Juego_PatronesJava/src/utad/inso/diseño/atributos/DecoradorVida.java" binary="false" corner="BOTTOM_RIGHT">    
+    <position height="171" width="180" x="226" y="338"/>    
+    <display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
+      sort-features="false" accessors="true" visibility="true">      
+      <attributes public="true" package="true" protected="true" private="true" static="true"/>      
+      <operations public="true" package="true" protected="true" private="true" static="true"/>    
+    </display>  
+  </interface>  
+  <realization id="11">    
     <end type="SOURCE" refId="6"/>    
-    <end type="TARGET" refId="3"/>  
+    <end type="TARGET" refId="4"/>  
   </realization>  
-  <association id="23">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="24" name="decoradorDano">        
+  <association id="12">    
+    <end type="SOURCE" refId="6" navigable="false">      
+      <attribute id="13" name="decoradorDano">        
         <position height="0" width="0" x="0" y="0"/>      
       </attribute>      
-      <multiplicity id="25" minimum="0" maximum="1">        
+      <multiplicity id="14" minimum="0" maximum="1">        
         <position height="0" width="0" x="0" y="0"/>      
       </multiplicity>    
     </end>    
     <end type="TARGET" refId="4" navigable="true"/>    
     <display labels="true" multiplicity="true"/>  
   </association>  
-  <association id="26">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="27" name="decoradorVida">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="28" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="5" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="29">    
-    <end type="SOURCE" refId="2"/>    
-    <end type="TARGET" refId="4"/>  
-  </realization>  
-  <association id="30">    
-    <end type="SOURCE" refId="10" navigable="false">      
-      <attribute id="31" name="decoradorAgilidad">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </attribute>      
-      <multiplicity id="32" minimum="0" maximum="1">        
-        <position height="0" width="0" x="0" y="0"/>      
-      </multiplicity>    
-    </end>    
-    <end type="TARGET" refId="3" navigable="true"/>    
-    <display labels="true" multiplicity="true"/>  
-  </association>  
-  <realization id="33">    
+  <realization id="15">    
     <end type="SOURCE" refId="1"/>    
     <end type="TARGET" refId="3"/>  
   </realization>  
+  <association id="16">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="17" name="decoradorDano">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </attribute>      
+      <multiplicity id="18" minimum="0" maximum="1">        
+        <position height="0" width="0" x="0" y="0"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="4" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <association id="19">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="20" name="decoradorVida"/>      
+      <multiplicity id="21" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="22">    
+    <end type="SOURCE" refId="2"/>    
+    <end type="TARGET" refId="4"/>  
+  </realization>  
+  <association id="23">    
+    <end type="SOURCE" refId="9" navigable="false">      
+      <attribute id="24" name="decoradorVida"/>      
+      <multiplicity id="25" minimum="0" maximum="1"/>    
+    </end>    
+    <end type="TARGET" refId="10" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="26">    
+    <end type="SOURCE" refId="5"/>    
+    <end type="TARGET" refId="3"/>  
+  </realization>  
+  <association id="27">    
+    <end type="SOURCE" refId="5" navigable="false">      
+      <attribute id="28" name="decoradorAgilidad">        
+        <position height="0" width="0" x="-701" y="224"/>      
+      </attribute>      
+      <multiplicity id="29" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-701" y="224"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
+  <realization id="30">    
+    <end type="SOURCE" refId="7"/>    
+    <end type="TARGET" refId="10"/>  
+  </realization>  
+  <association id="31">    
+    <end type="SOURCE" refId="8" navigable="false">      
+      <attribute id="32" name="decoradorAgilidad">        
+        <position height="0" width="0" x="-701" y="224"/>      
+      </attribute>      
+      <multiplicity id="33" minimum="0" maximum="1">        
+        <position height="0" width="0" x="-701" y="224"/>      
+      </multiplicity>    
+    </end>    
+    <end type="TARGET" refId="3" navigable="true"/>    
+    <display labels="true" multiplicity="true"/>  
+  </association>  
   <realization id="34">    
     <end type="SOURCE" refId="9"/>    
-    <end type="TARGET" refId="5"/>  
+    <end type="TARGET" refId="10"/>  
   </realization>  
   <classifier-display autosize="true" stereotype="true" package="true" initial-value="false" signature="true" 
     sort-features="false" accessors="true" visibility="true">    
