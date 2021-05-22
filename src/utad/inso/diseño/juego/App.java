@@ -1,10 +1,6 @@
 package utad.inso.diseño.juego;
-import utad.inso.diseño.enemigos.*;
+
 import utad.inso.diseño.gameManager.GameManager;
-import utad.inso.diseño.pociones.PocionAntiInflamable;
-import utad.inso.diseño.pociones.PocionVida;
-import utad.inso.diseño.gameManager.*;
-import utad.inso.diseño.atributos.Arma;
 
 public class App {
 	public static void main(String[] args) {
